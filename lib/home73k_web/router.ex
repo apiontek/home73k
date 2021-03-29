@@ -17,7 +17,10 @@ defmodule Home73kWeb.Router do
   scope "/", Home73kWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    get "/", HomeController, :index
+    get "/resume", HomeController, :resume
+    get "/folio", HomeController, :folio
+    live "/live", PageLive, :index
   end
 
   # Other scopes may use custom stacks.

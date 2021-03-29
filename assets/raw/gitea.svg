@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg8" inkscape:export-filename="" inkscape:export-xdpi="48.000004" inkscape:export-ydpi="48.000004" inkscape:version="0.92.1 r15371" sodipodi:docname="logo.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+	 style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#000000;stroke-width:2.68;}
+</style>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer2" inkscape:cx="418.13805" inkscape:cy="177.57445" inkscape:document-units="mm" inkscape:measure-end="290.267,236.527" inkscape:measure-start="283.373,243.952" inkscape:pagecheckerboard="false" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="1137" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:zoom="0.70710678" pagecolor="#ffffff" showgrid="false" showguides="false" units="px" width="256px">
+	<sodipodi:guide  id="guide3699" inkscape:locked="false" orientation="0,512" position="0,0"></sodipodi:guide>
+	<sodipodi:guide  id="guide3701" inkscape:locked="false" orientation="-512,0" position="135.46667,0"></sodipodi:guide>
+	<sodipodi:guide  id="guide3703" inkscape:locked="false" orientation="0,-512" position="135.46667,135.46667"></sodipodi:guide>
+	<sodipodi:guide  id="guide3705" inkscape:locked="false" orientation="512,0" position="0,135.46667"></sodipodi:guide>
+</sodipodi:namedview>
+<g id="layer2" inkscape:groupmode="layer" inkscape:label="Layer 2">
+	<path id="rect4599" class="st0" d="M258.2,225.4c5-10.3,17.4-14.6,27.7-9.6"/>
+	<g>
+		<path d="M476.3,129c-77.3,4.1-123.1,6.2-162.4,6.5v87.4l-12.3-6.1l-0.1-81.3c-45.1,0-84.8-2.4-160.1-6.5
+			c-9.4-0.1-22.6-1.9-36.7-1.9C68.6,127,20.3,152.8,23,217.4c4.2,101,96.2,110.4,133,111.2c4,18.9,47.3,84.3,79.4,87.7h140.4
+			C460,410.1,523,130,476.3,129z M58.1,218.9c-3.6-28,9-57.3,56.1-56.1c5.1,51.8,13.4,82,30.3,128.3
+			C101.4,285.4,64.8,271.4,58.1,218.9z M376.4,282.8l-39.3,80.9c-5,10.3-17.4,14.6-27.7,9.6L228.5,334c-10.3-5-14.6-17.4-9.6-27.7
+			l39.3-80.9l27.7-9.6l80.9,39.3C377.1,260.1,381.4,272.5,376.4,282.8z"/>
+	</g>
+	<path id="path4525" inkscape:connector-curvature="0" sodipodi:nodetypes="ccccc" class="st0" d="M301.5,135.5l0.1,81.3"/>
+</g>
+<g id="layer3" inkscape:groupmode="layer" inkscape:label="Layer 3">
+	<g id="g4539">
+		<circle id="path4606" cx="289.8" cy="257.5" r="13.1"/>
+		<circle id="path4606-3" cx="261.6" cy="316" r="13.1"/>
+		<circle id="path4606-1" cx="308" cy="336.8" r="13.1"/>
+		
+			<rect id="rect4629-8" x="231" y="266.2" transform="matrix(0.4388 -0.8986 0.8986 0.4388 -85.169 406.1544)" width="103" height="10.1"/>
+		<path id="path4514" inkscape:connector-curvature="0" sodipodi:nodetypes="cc" class="st1" d="M289.4,257.4
+			c49,24.2,49.2,15.5,18.5,79"/>
+	</g>
+</g>
+</svg>

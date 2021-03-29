@@ -7,15 +7,4 @@ defmodule Home73kWeb.LayoutView do
       true -> Keyword.update(opts, :class, "active", fn c -> "#{c} active" end)
     end
   end
-
-  def alert_kinds do
-    [
-      success: "alert-success",
-      info: "alert-info",
-      error: "alert-danger",
-      warning: "alert-warning",
-      primary: "alert-primary",
-      secondary: "alert-secondary"
-    ]
-  end
 end

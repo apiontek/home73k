@@ -1,9 +1,22 @@
 // Colors
-// $primary: #662c91;
-// $secondary: #ee6c4d;
-// $success: #3f784c;
-// $info: #3f84e5;
-// $warning: #ffec51;
+$primary: #e48663;
+$secondary: #00b0b0;
+$success: #99c24d;
+$info: #a67db8;
+$warning: #f4d35e;
+
+$white: #fff;
+$gray-100: #e8e8e8;
+$gray-200: #cfcfcf;
+$gray-300: #b5b5b5;
+$gray-400: #9c9c9c;
+$gray-500: #828282;
+$gray-600: #696969;
+$gray-700: #4f4f4f;
+$gray-800: #363636;
+$gray-900: #242424;
+$black: #000;
+
 $light: $gray-200;
 $dark: $gray-800;
 
@@ -17,7 +30,8 @@ $custom-colors: (
   "danger": $danger,
   "light": $light,
   "dark": $dark,
-  "gray": $gray-500,
+  "gray": $gray-600,
+  "gray-dark": $gray-800,
 );
 
 // $custom-colors: (

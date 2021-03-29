@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-  <div class="container">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark px-1 px-sm-2 px-lg-3 px-xl-4 px-xxl-5 py-3">
+  <div class="container-fluid">
 
-    <h1 class="fs-4 my-0 py-0 lh-base">
-    <%= link to: Routes.page_path(@conn, :index), class: "navbar-brand fs-4" do %>
-      <%= icon_div @conn, "mdi-desktop-classic", [class: "icon baseline me-1 fs-3"] %>
-      <span class="fw-light" style="font-family: Righteous;">\\AdamPion73k</span>
-    <% end %>
+    <h1 class="my-0 py-0 lh-base">
+      <%= link to: Routes.home_path(@conn, :index), class: "navbar-brand fs-1 text-secondary" do %>
+        <%= icon_div @conn, "mdi-desktop-classic", [class: "icon baseline"] %>
+        <span class="fw-light" style="font-family: Righteous;">\\73k</span>
+      <% end %>
     </h1>
 
-    <button class="hamburger hamburger--squeeze collapsed navbar-toggler" id="navbarSupportedContentToggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="hamburger hamburger--vortex collapsed navbar-toggler" id="navbarSupportedContentToggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="hamburger-box d-flex">
         <span class="hamburger-inner"></span>
       </span>
@@ -17,41 +17,34 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <%# nav LEFT items %>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <%# ACTIVE page link example %>
-        <%# <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li> %>
-
-        <%# DISABLED page link example %>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-
-        <%# <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownExample" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownExample">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> %>
-
-      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
       <%# nav RIGHT items %>
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Resume</a>
+          <%= link nav_link_opts(@conn, to: Routes.home_path(@conn, :index), class: "nav-link font-monospace fs-6") do %>
+            <%= icon_div @conn, "mdi-home", [class: "icon baseline"] %><span>\~</span>
+          <% end %>
         </li>
 
-          <%= link nav_link_opts(@conn, to: Routes.page_path(@conn, :index), class: "btn btn-outline-dark d-none d-lg-block") do %>
-            <%#= icon_div @conn, "bi-door-open", [class: "icon baseline"] %>
-            Log in
+        <li class="nav-item">
+          <%= link nav_link_opts(@conn, to: Routes.home_path(@conn, :resume), class: "nav-link font-monospace fs-6") do %>
+            <%= icon_div @conn, "mdi-briefcase-account", [class: "icon baseline"] %><span>\R&eacute;sum&eacute;</span>
           <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link nav_link_opts(@conn, to: Routes.home_path(@conn, :folio), class: "nav-link font-monospace fs-6") do %>
+            <%= icon_div @conn, "mdi-zip-disk", [class: "icon baseline"] %><span>\Portfolio</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link nav_link_opts(@conn, to: Routes.page_path(@conn, :index), class: "nav-link font-monospace fs-6") do %>
+            <%= icon_div @conn, "mdi-typewriter", [class: "icon baseline"] %><span>\Blog</span>
+          <% end %>
+        </li>
 
 
       </ul>

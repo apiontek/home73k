@@ -3,7 +3,16 @@ defmodule Home73kWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "", results: %{}, page_title: "~")}
+    {:ok,
+     assign(socket, query: "", results: %{}, page_title: "~")
+     |> put_flash(:success, "Log in was a success. Good for you.")
+     |> put_flash(:error, "Lorem ipsum dolor sit amet consectetur adipisicing elit.")
+     |> put_flash(
+       :info,
+       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolore sunt quia aperiam sint id reprehenderit? Dolore incidunt alias inventore accusantium nulla optio, ducimus eius aliquam hic, pariatur voluptate distinctio."
+     )
+     |> put_flash(:warning, "Oh no, there's nothing to worry about!")
+     |> put_flash(:primary, "Something in the brand color.")}
   end
 
   @impl true

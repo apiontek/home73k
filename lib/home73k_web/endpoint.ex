@@ -24,7 +24,7 @@ defmodule Home73kWeb.Endpoint do
     at: "/",
     from: :home73k,
     gzip: true,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(css fonts images js favicon.ico robots.txt DF185CEE29A3D443_public_key.asc)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

@@ -1,0 +1,27 @@
+<main class="container-fluid h-100 d-flex justify-content-center align-items-center">
+
+  <div class="d-flex flex-column align-items-center flex-lg-row align-items-lg-end justify-content-lg-center mt-5">
+
+      <div class="col-12 col-sm-10 col-md-7 col-lg-auto mb-3 mb-lg-0">
+        <%= img_tag Routes.static_path(@conn, "/images/construct.gif"),
+            class: "img-fluid",
+            alt: "Classic 1990s-style simple animation depicting a construction site digger. Text reads 'page under construction'",
+            title: "Put on your hard hat!"
+          %>
+      </div>
+
+
+      <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 col-xxl-4 justify-content-start ms-lg-3">
+
+        <h2 class="font-monospace fs-2 fw-600 mb-0">
+          <%= icon_div @conn, "mdi-account-hard-hat", [class: "icon baseline me-2"] %><span>Working on it!</span>
+        </h2>
+
+        <div class="font-monospace fs-5">I've made some things over the years (like this site!), and at some point I'll highlight some here.</div>
+
+      </div>
+
+
+  </div>
+
+</main>

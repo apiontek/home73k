@@ -13,6 +13,64 @@
 /* Navbar toggler icon override */
 @import "nav-burger";
 
+/* Navbar custom styling */
+@import "nav-bar-help";
+
+/* main */
+html,
+body {
+  color: $gray-100;
+  background-color: $gray-800;
+  height: 100%;
+}
+.border-gray-900 {
+  border-color: $gray-900 !important;
+}
+.text-gray-300 {
+  color: $gray-300;
+}
+.border-10 {
+  border-width: 10px !important;
+}
+.border-20 {
+  border-width: 20px !important;
+}
+.fw-600 {
+  font-weight: 600;
+}
+
+/* social icons */
+#social-icons .link-light:hover {
+  color: $primary;
+}
+
+/* resume separators */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $gray-300;
+  font-family: $font-family-monospace;
+  font-size: smaller;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid $secondary;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.5em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.33em;
+}
+
 /* extra */
 .was-validated .no-valid-style .form-check-input:valid,
 .form-check-input.is-valid {
