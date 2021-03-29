@@ -31,7 +31,8 @@ defmodule Home73kWeb do
     quote do
       use Phoenix.View,
         root: "lib/home73k_web/templates",
-        namespace: Home73kWeb
+        namespace: Home73kWeb,
+        pattern: "**/*"
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -48,6 +49,7 @@ defmodule Home73kWeb do
         layout: {Home73kWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
+      import Home73kWeb.LiveHelpers
     end
   end
 
@@ -56,6 +58,7 @@ defmodule Home73kWeb do
       use Phoenix.LiveComponent
 
       unquote(view_helpers())
+      import Home73kWeb.LiveHelpers
     end
   end
 
@@ -86,6 +89,9 @@ defmodule Home73kWeb do
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
+
+      # Import SVG Icon helper
+      import Home73kWeb.IconHelpers
 
       import Home73kWeb.ErrorHelpers
       import Home73kWeb.Gettext

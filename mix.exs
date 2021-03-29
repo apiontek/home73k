@@ -43,7 +43,13 @@ defmodule Home73k.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:tzdata, "~> 1.1"},
+
+      # Additional packages
+
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:sobelow, "~> 0.8", only: :dev}
     ]
   end
 

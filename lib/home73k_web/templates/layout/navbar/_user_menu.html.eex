@@ -1,0 +1,29 @@
+<li class="nav-item dropdown">
+
+  <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownUserMenu" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= icon_div @conn, "bi-person-circle", [class: "icon baseline me-1"] %>
+    Hello
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUserMenu">
+
+    <li><hr class="dropdown-divider"></li>
+
+    <li>
+      <%= link nav_link_opts(@conn, to: Routes.page_path(@conn, :index), class: "dropdown-item") do %>
+        <%= icon_div @conn, "bi-people", [class: "icon baseline me-1"] %>
+        Users
+      <% end %>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+
+    <li>
+      <%= link nav_link_opts(@conn, to: Routes.page_path(@conn, :index), class: "dropdown-item") do %>
+        <%= icon_div @conn, "bi-sliders", [class: "icon baseline me-1"] %>
+        Settings
+      <% end %>
+    </li>
+
+  </ul>
+
+</li>

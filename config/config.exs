@@ -7,6 +7,11 @@
 # General application configuration
 use Mix.Config
 
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+
+# Custom application global variables
+config :home73k, :app_global_vars, time_zone: "America/New_York"
+
 # Configures the endpoint
 config :home73k, Home73kWeb.Endpoint,
   url: [host: "localhost"],
