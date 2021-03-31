@@ -33,9 +33,15 @@ npm-debug.log
 # this depending on your deployment strategy.
 /priv/static/
 
+# config secrets
+/config/*.secret.exs
 
 # for vscode elixir_ls extension files
 /.elixir_ls
+
+# blog content repo folder
+/priv/content/*
+!/priv/content/.gitkeep
 
 # dev
 TODO.md
