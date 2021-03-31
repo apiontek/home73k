@@ -41,7 +41,6 @@ npm-debug.log
 
 # blog content repo folder
 /priv/content/*
-!/priv/content/.gitkeep
 
 # dev
 TODO.md
