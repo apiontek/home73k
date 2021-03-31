@@ -40,7 +40,7 @@ npm-debug.log
 /.elixir_ls
 
 # blog content repo folder
-/priv/content/*
+/priv/content/
 
 # dev
 TODO.md

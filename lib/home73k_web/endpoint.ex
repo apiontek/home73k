@@ -26,6 +26,18 @@ defmodule Home73kWeb.Endpoint do
     gzip: true,
     only: ~w(css fonts images js favicon.ico robots.txt DF185CEE29A3D443_public_key.asc)
 
+  # Blog static path handler
+  if File.dir?(Home73k.Repo.content_path()) do
+    plug Plug.Static,
+      at: "/_",
+      from: Home73k.Repo.content_path(),
+      gzip: false,
+      only:
+        Home73k.Repo.content_path()
+        |> File.ls!()
+        |> Enum.filter(fn f -> !String.starts_with?(f, ".") end)
+  end
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do

@@ -12,9 +12,10 @@ defmodule Home73k.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Home73k.PubSub},
       # Start the Endpoint (http/https)
-      Home73kWeb.Endpoint
+      Home73kWeb.Endpoint,
       # Start a worker by calling: Home73k.Worker.start_link(arg)
       # {Home73k.Worker, arg}
+      Home73k.Blog
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
