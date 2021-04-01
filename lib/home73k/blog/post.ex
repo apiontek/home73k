@@ -1,8 +1,8 @@
 defmodule Home73k.Blog.Post do
-  @enforce_keys [:title, :slug, :date, :author, :tags, :lede, :body]
-  defstruct [:title, :slug, :date, :author, :tags, :lede, :body]
+  @enforce_keys [:title, :slug, :date, :author, :tags, :lede, :body, :corpus]
+  defstruct [:title, :slug, :date, :author, :tags, :lede, :body, :corpus]
 
-  @title_slug_regex ~r/[^a-zA-Z0-9 ]/
+  @strip_words ~w(the and are for not but had has was all any too one you his her can that with have this will your from they want been much some very them into which then now get its youll youre)
 
   @doc """
   The public parse!/1 function begins the post parse process by reading
@@ -15,13 +15,19 @@ defmodule Home73k.Blog.Post do
     |> split_raw_file_data()
     |> parse_frontmatter()
     |> parse_lede()
+    |> parse_body()
+    |> build_corpus()
+    |> build_post()
   end
 
   # """ split_raw_file_data/1
   # If we receive {:ok, file_data}, we split frontmatter from markdown
   # content and return [raw_frontmatter, markdown]. Otherwise return nil.
   # """
-  defp split_raw_file_data({:ok, file_data}), do: String.split(file_data, ~r/\n-{3,}\n/, parts: 2)
+  defp split_raw_file_data({:ok, file_data}) do
+    file_data |> String.split("---", parts: 2, trim: true)
+  end
+
   defp split_raw_file_data(_), do: nil
 
   # """ parse_frontmatter/1
@@ -30,7 +36,7 @@ defmodule Home73k.Blog.Post do
   # """
   defp parse_frontmatter([fm, md]) do
     case parse_frontmatter_string(fm) do
-      {%{} = parsed_fm, _} -> {parsed_fm, md}
+      {%{} = parsed_fm, _} -> {set_post_slug(parsed_fm), String.trim(md)}
       {:error, _} -> nil
     end
   end
@@ -47,11 +53,50 @@ defmodule Home73k.Blog.Post do
 
   defp parse_lede(_), do: nil
 
-  # TODO:
-  # |> parse_body()
-  #     - convert to markdown
-  #     - extract any code parts to mark with pygments?
-  #     - figure that whole thing out
+  # """ parse_body/1
+  # Convert body markdown to html
+  # TODO: handle syntax highlighting
+  defp parse_body({fm, md}) do
+    Map.put(fm, :body, Earmark.as_html!(md))
+  end
+
+  defp parse_body(_), do: nil
+
+  # """ build_corpus/1
+  # Create a searchable word list for the post, for live searching
+  defp build_corpus(%{title: title, lede: lede, body: body, tags: tags} = post_data) do
+    # initialize corpus string from: title, lede, body, tags
+    corpus = (tags ++ [title, (lede && lede) || " ", body]) |> Enum.join(" ") |> String.downcase()
+
+    # scrub out (but replace with spaces):
+    # code blocks, html tags, html entities, newlines, forward and back slashes
+    html_scrub_regex = ~r/(<pre><code(.|\n)*?<\/code><\/pre>)|(<(.|\n)+?>)|(&#(.)+?;)|(&(.)+?;)|\n|\/|\\/
+    corpus = Regex.replace(html_scrub_regex, corpus, " ")
+
+    # restrict corpus to letters & numbers,
+    # then split to words (space delim), trimming as we go
+    # then reject all 0, 1, 2-letter words, and words in @strip_words
+    # reduce to unique words and join back to space-delim string
+    corpus =
+      Regex.replace(~r/[^a-z0-9 ]/, corpus, "")
+      |> String.split(" ", trim: true)
+      |> Stream.reject(&reject_word?/1)
+      |> Stream.uniq()
+      |> Enum.join(" ")
+
+    # Finally, return post_data with corpus
+    Map.put(post_data, :corpus, corpus)
+  end
+
+  defp build_corpus(_), do: nil
+
+  # """ build_post/1
+  # Create post struct from post data map
+  defp build_post(%{} = post_data) do
+    struct!(__MODULE__, post_data)
+  end
+
+  defp build_post(_), do: nil
 
   ######################################################################
   # HELPERS
@@ -74,62 +119,36 @@ defmodule Home73k.Blog.Post do
   # Handle split of post body. If lede found, return as html with body.
   # Otherwise return nil with body.
   # """
-  defp extract_lede([lede, body]), do: {Earmark.as_html!(lede), body}
+  defp extract_lede([lede, body]),
+    do: {String.trim_trailing(lede) |> Earmark.as_html!(), String.trim_leading(body)}
+
   defp extract_lede([body]), do: {nil, body}
 
-  # ##################################################
-  # ##################################################
-  # ##################################################
-  # ##################################################
-  # ##################################################
-  # defp parse_split_file_data(["", fm, md]) do
-  #   Code.eval_string(fm)
-  #   |> parse_lede(md)
-  # end
+  # """ set_frontmatter_slug
+  # If no slug in frontmatter, convert title to slug and add to map
+  # """
+  defp set_post_slug(%{slug: _} = fm), do: fm
 
-  # defp parse_split_file_data(_), do: nil
+  defp set_post_slug(%{title: title} = fm) do
+    Map.put(fm, :slug, parse_title_to_slug(title))
+  end
 
-  # defp parse_lede({%{summary: summ} = fm, _}, md) do
-  #   Earmark.as_html(md)
-  #   |> parse_post(Earmark.as_html(summ), fm)
-  # end
+  # """ parse_title_to_slug
+  # Takes a post title and returns a slug cleansed for URI request path
+  # """
+  defp parse_title_to_slug(title) do
+    title = String.downcase(title)
 
-  # defp parse_lede({%{} = fm, _}, md) do
-  #   String.split(md, "<!--more-->", parts: 2)
-  #   |> parse_lede(fm)
-  # end
+    Regex.replace(~r/[^a-z0-9 ]/, title, "")
+    |> String.split(" ", trim: true)
+    |> Stream.reject(&reject_word?/1)
+    |> Enum.join("-")
+  end
 
-  # defp parse_lede([summ, _] = parts, fm) do
-  #   parts
-  #   |> Enum.join(" ")
-  #   |> Earmark.as_html()
-  #   |> parse_post(Earmark.as_html(summ), fm)
-  # end
-
-  # defp parse_lede(md, fm) do
-  #   Earmark.as_html(md)
-  #   |> parse_post({:ok, nil, []}, fm)
-  # end
-
-  # defp parse_title_to_slug(title) do
-  #   Regex.replace(@title_slug_regex, title, "")
-  #   |> String.replace(" ", "-")
-  #   |> String.downcase()
-  # end
-
-  # defp build_post(main_html, summ_html, fm) do
-  #   fm
-  #   |> Map.put_new(:slug, parse_title_to_slug(fm.title))
-  #   |> Map.put_new(:author, "Author Name")
-  #   |> Map.put_new(:tags, [])
-  #   |> Map.put(:summary, summ_html)
-  #   |> Map.put(:body, main_html)
-  # end
-
-  # defp parse_post({:ok, main_html, _}, {:ok, summ_html, _}, fm) do
-  #   post = build_post(main_html, summ_html, fm)
-  #   struct!(__MODULE__, post)
-  # end
-
-  # defp parse_post(_, _, _), do: nil
+  # """ reject_word?
+  # Determines if a word should be rejected, based on char length < 3,
+  # or if word is in @strip_words
+  # Used by parse_title_to_slug and build_corpus
+  # """
+  defp reject_word?(word), do: String.length(word) < 3 || word in @strip_words
 end

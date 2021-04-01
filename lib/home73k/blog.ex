@@ -17,13 +17,12 @@ defmodule Home73k.Blog do
       Post.parse!(post_path)
     end
 
-  @posts posts
-  # @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
+  @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
 
-  # @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
+  @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
 
   def list_posts, do: @posts
-  # def list_tags, do: @tags
+  def list_tags, do: @tags
 
   # defmodule NotFoundError do
   #   defexception [:message, plug_status: 404]
