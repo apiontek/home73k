@@ -75,7 +75,7 @@ defmodule Home73k.Blog.Post do
 
     # restrict corpus to letters & numbers,
     # then split to words (space delim), trimming as we go
-    # then reject all 0, 1, 2-letter words, and words in @strip_words
+    # then reject short & common words
     # reduce to unique words and join back to space-delim string
     corpus =
       Regex.replace(~r/[^a-z0-9 ]/, corpus, "")
@@ -146,8 +146,7 @@ defmodule Home73k.Blog.Post do
   end
 
   # """ reject_word?
-  # Determines if a word should be rejected, based on char length < 3,
-  # or if word is in @strip_words
+  # Returns true to reject short or common words
   # Used by parse_title_to_slug and build_corpus
   # """
   defp reject_word?(word), do: String.length(word) < 3 || word in @strip_words

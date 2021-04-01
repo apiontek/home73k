@@ -3,13 +3,7 @@ defmodule Home73k.Blog do
 
   Application.ensure_all_started(:earmark)
 
-  @content_path Application.compile_env(:home73k, [:content_repo, :path], "./priv/content")
-
-  posts_paths =
-    @content_path
-    |> Path.expand()
-    |> Path.join("**/*.md")
-    |> Path.wildcard()
+  posts_paths = "priv/content/**/*.md" |> Path.wildcard()
 
   posts =
     for post_path <- posts_paths do
