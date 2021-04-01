@@ -4,10 +4,10 @@ defmodule Home73k.Blog do
   Application.ensure_all_started(:earmark)
 
   @content_path Application.compile_env(:home73k, [:content_repo, :path], "./priv/content")
-                |> Path.expand()
 
   posts_paths =
     @content_path
+    |> Path.expand()
     |> Path.join("**/*.md")
     |> Path.wildcard()
 
@@ -17,13 +17,13 @@ defmodule Home73k.Blog do
       Post.parse!(post_path)
     end
 
-  # @posts posts
-  @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
+  @posts posts
+  # @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
 
-  @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
+  # @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
 
   def list_posts, do: @posts
-  def list_tags, do: @tags
+  # def list_tags, do: @tags
 
   # defmodule NotFoundError do
   #   defexception [:message, plug_status: 404]

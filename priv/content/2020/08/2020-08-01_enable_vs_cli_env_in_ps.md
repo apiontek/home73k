@@ -7,10 +7,6 @@
 }
 ---
 
-# Enable Visual Studio CLI environment in PowerShell
-
-#coding #tech #elixir #windows #powershell #scripting
-
 My initial problem: I have an elixir project I'm building primarily on linux, but I want it to work on Windows, too, and I'm using [bcrypt](https://github.com/riverrun/bcrypt_elixir), which [needs nmake to compile](https://github.com/riverrun/comeonin/wiki/Requirements#windows) on Windows.
 
 One must install Visual Studio (VS), but that's not enough.<!--more--> Your terminal/PowerShell CLI environment won't know about VS by default. VS includes batch files to set up a dev environment, but if you run them in PowerShell, they bring you into a CMD environment, which is no help if you want to use PowerShell.

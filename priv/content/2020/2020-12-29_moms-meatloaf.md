@@ -3,8 +3,7 @@
   title: "Mom's Meatloaf",
   date: ~N[2020-12-29 01:00:00],
   author: "Adam Piontek",
-  tags: ["food", "recipe", "mealprep", "pandemiceats", "plaguecooking"],
-  summary: "A meatloaf recipe from a very special mom"
+  tags: ["food", "recipe", "mealprep", "pandemiceats", "plaguecooking"]
 }
 ---
 
