@@ -45,8 +45,6 @@ defmodule Home73k.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:tzdata, "~> 1.1"},
-      {:git_cli, "~> 0.3.0"},
-      {:yaml_elixir, "~> 2.6"},
       {:earmark, "~> 1.4"},
 
       # Additional packages

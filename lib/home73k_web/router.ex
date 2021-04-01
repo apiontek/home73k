@@ -43,9 +43,4 @@ defmodule Home73kWeb.Router do
       live_dashboard "/dashboard", metrics: Home73kWeb.Telemetry
     end
   end
-
-  # Wildcard path for handling Blog Files from repo
-  scope "/", Home73kWeb do
-    get "/*path", BlogFileController, :index
-  end
 end
