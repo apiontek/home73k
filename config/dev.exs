@@ -53,7 +53,8 @@ config :home73k, Home73kWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/home73k_web/(live|views)/.*(ex)$",
-      ~r"lib/home73k_web/templates/.*(eex)$"
+      ~r"lib/home73k_web/templates/.*(eex)$",
+      ~r"priv/content/*/.*(md)$"
     ]
   ]
 

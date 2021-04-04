@@ -5,6 +5,10 @@ defmodule Home73kWeb.HomeController do
     render(conn, "index.html")
   end
 
+  def about(conn, _params) do
+    render(conn, "about.html", page_title: "About")
+  end
+
   def resume(conn, _params) do
     render(conn, "resume.html", page_title: "Résumé")
   end

@@ -11,6 +11,8 @@ Preheat oven to 350
 
 So as you know, I just throw my meatloaf together, but here are my estimates based on a bunch of published recipes:
 
+<!--more-->
+
 - Put 2 pounds ground beef (80/20) in a large bowl.
 - Squirt about 1/2 cup ketchup over it.
 - Sprinkle about a tablespoon of Worcestershire sauce over.

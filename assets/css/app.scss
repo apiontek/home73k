@@ -23,11 +23,29 @@ body {
   background-color: $gray-800;
   height: 100%;
 }
+a {
+  color: $primary;
+  &:visited {
+    color: $info;
+  }
+  &:hover {
+    color: $secondary;
+  }
+}
 .border-gray-900 {
   border-color: $gray-900 !important;
 }
+.text-gray-200 {
+  color: $gray-200;
+}
 .text-gray-300 {
   color: $gray-300;
+}
+.text-gray-400 {
+  color: $gray-400;
+}
+.text-gray-500 {
+  color: $gray-500;
 }
 .border-10 {
   border-width: 10px !important;
@@ -35,13 +53,34 @@ body {
 .border-20 {
   border-width: 20px !important;
 }
+.fw-500 {
+  font-weight: 500;
+}
 .fw-600 {
   font-weight: 600;
 }
+.font-sans-serif {
+  font-family: $font-family-sans-serif;
+}
+.font-brand {
+  font-family: $font-family-brand;
+}
+.font-code {
+  font-family: $font-family-code;
+}
+.fs-larger {
+  font-size: larger;
+}
+.fs-smaller {
+  font-size: smaller;
+}
 
 /* social icons */
-#social-icons .link-light:hover {
-  color: $primary;
+#social-icons .link-light {
+  color: $gray-100;
+  &:hover {
+    color: $primary;
+  }
 }
 
 /* resume separators */
@@ -49,26 +88,46 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  color: $gray-300;
+  color: $gray-500;
   font-family: $font-family-monospace;
   font-size: smaller;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid $secondary;
+  }
+  &:not(:empty)::before {
+    margin-right: 0.5em;
+  }
+  &:not(:empty)::after {
+    margin-left: 0.33em;
+  }
 }
 
-.separator::before,
-.separator::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid $secondary;
+/* blog */
+.post-title a {
+  color: $gray-100;
+  text-decoration: none;
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
 }
-
-.separator:not(:empty)::before {
-  margin-right: 0.5em;
+.post-lede,
+.post-body {
+  color: $gray-200;
+  h2, h3, h4, h5, h6 {
+    color: $gray-300;
+    margin-top: 2rem;
+  }
 }
-
-.separator:not(:empty)::after {
-  margin-left: 0.33em;
+.post-lede.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: $gray-300;
 }
 
 /* extra */

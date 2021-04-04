@@ -1,10 +1,10 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark px-1 px-sm-2 px-lg-3 px-xl-4 px-xxl-5 py-3">
+<nav class="navbar <%= if navbar_fixed?(@conn), do: "fixed-top" %> navbar-expand-lg navbar-dark bg-dark px-1 px-sm-2 px-lg-3 px-xl-4 px-xxl-5 py-3">
   <div class="container-fluid">
 
     <h1 class="my-0 py-0 lh-base">
       <%= link to: Routes.home_path(@conn, :index), class: "navbar-brand fs-1 text-secondary" do %>
         <%= icon_div @conn, "mdi-desktop-classic", [class: "icon baseline"] %>
-        <span class="fw-light" style="font-family: Righteous;">\\73k</span>
+        <span class="fw-light font-brand">\\73k</span>
       <% end %>
     </h1>
 
@@ -41,7 +41,13 @@
         </li>
 
         <li class="nav-item">
-          <%= link nav_link_opts(@conn, to: Routes.page_path(@conn, :index), class: "nav-link font-monospace fs-6") do %>
+          <%= link nav_link_opts(@conn, to: Routes.home_path(@conn, :about), class: "nav-link font-monospace fs-6") do %>
+            <%= icon_div @conn, "mdi-information", [class: "icon baseline"] %><span>\About</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link nav_link_opts(@conn, to: Routes.blog_path(@conn, :index), class: "nav-link font-monospace fs-6") do %>
             <%= icon_div @conn, "mdi-typewriter", [class: "icon baseline"] %><span>\Blog</span>
           <% end %>
         </li>

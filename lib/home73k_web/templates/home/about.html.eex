@@ -1,0 +1,48 @@
+<main class="container d-flex justify-content-center">
+
+  <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6 border-bottom border-gray pb-3 mb-5 mt-3">
+
+    <h2 class="fs-2 fw-600 mb-0">About</h2>
+
+    <div class="fs-5 font-monospace text-gray-500">Adam Piontek. Human.</div>
+
+
+    <figure class="my-4 border-start border-gray border-5 ps-3 py-2">
+      <blockquote class="blockquote">
+        <p>&ldquo;Probabilities collapse. I become increasingly unlikely.&rdquo;</p>
+      </blockquote>
+      <figcaption class="blockquote-footer text-gray-400 mb-0">
+        Robert Charles Wilson, <cite title="Divided by Infinity">Divided by Infinity</cite>
+      </figcaption>
+    </figure>
+
+    <div class="post-body">
+      <p>
+      From Minnesota, via California, now New York. I'm always learning, and I often think most things should slow down a little, though I'm still working on that practice for myself. I've been a tech nerd since my teens in the 1990s, but didn't begin to take it seriously until around 2009.
+      </p>
+
+      <p>
+      I'm now a Desktop Systems Engineer with a large global law firm, involved in desktop & mobile security, testing, deployment, and elevated user support.
+      </p>
+
+      <p>
+      I enjoy spending time with my many pets, talking science fiction & politics, going hiking, and tinkering with programming projects. I've written a few things I'm reasonably proud of &mdash; for work, for family, for myself &mdash; including this website!
+      </p>
+
+      <p>
+      This site is powered by a custom little <%= link "Phoenix", to: "https://phoenixframework.org/" %> project hosted on a <%= link "Linode", to: "https://www.linode.com/" %> VPS, where I also run instances of <%= link "Gitea", to: "https://gitea.io/" %>, <%= link "Miniflux", to: "https://miniflux.app/" %>, <%= link "ZNC", to: "https://znc.in/" %>, <%= link "The Lounge", to: "https://thelounge.chat/" %>, <%= link "Calibre-Web", to: "https://github.com/janeczku/calibre-web" %>, <%= link "BicBucStriim", to: "https://projekte.textmulch.de/bicbucstriim/" %>, a little <%= link "hubot", to: "https://hubot.github.com/" %> for my family's group chat (Discord for now), and some other odds & ends.
+      </p>
+
+      <p>
+      At home, between a plucky Raspberry Pi 4 running Ubuntu Linux, and a beefier Windows machine, I also run: <%= link "Jellyfin", to: "https://jellyfin.org/" %>, <%= link "Plex", to: "https://www.plex.tv/" %>, and several apps via Docker, including <%= link "audioserve", to: "https://github.com/izderadicka/audioserve" %>, <%= link "Komga", to: "https://komga.org/" %>, <%= link "Unifi Controller", to: "https://github.com/jacobalberty/unifi-docker" %>, and a group of others (like <%= link "transmission-openvpn", to: "https://hub.docker.com/r/haugene/transmission-openvpn/" %> and <%= link "nzbget", to: "https://hub.docker.com/r/linuxserver/nzbget" %> (Arr!))
+      </p>
+
+      <p>
+      I'm very lucky to have some super amazing people in my life, always reminding me of how little I know, enabling beautiful experiences, and appreciating places and systems I otherwise wouldn't give a second thought to.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>

@@ -13,11 +13,11 @@
 
       <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 col-xxl-4 justify-content-start ms-lg-3">
 
-        <h2 class="font-monospace fs-2 fw-600 mb-0">
+        <h2 class="font-monospace fs-2 fw-500 mb-0">
           <%= icon_div @conn, "mdi-account-hard-hat", [class: "icon baseline me-2"] %><span>Working on it!</span>
         </h2>
 
-        <div class="font-monospace fs-5">I've made some things over the years (like this site!), and at some point I'll highlight some here.</div>
+        <div class="font-monospace text-gray-200 fs-5">I've made some things over the years (like this site!), and at some point I'll highlight some here.</div>
 
       </div>
 

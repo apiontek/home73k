@@ -23,7 +23,7 @@ defmodule Home73kWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :home73k,
-    gzip: true,
+    gzip: (Mix.env() not in [:dev, :test]),
     only: ~w(css fonts images js favicon.ico robots.txt DF185CEE29A3D443_public_key.asc)
 
   # Code reloading can be explicitly enabled under the

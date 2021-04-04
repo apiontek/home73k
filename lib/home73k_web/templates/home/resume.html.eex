@@ -1,14 +1,14 @@
-<main class="container-fluid h-100 d-flex justify-content-center align-items-center">
+<main class="container-fluid d-flex justify-content-center align-items-center">
 
   <div class="d-flex flex-column mt-5">
 
     <div class="col-auto justify-content-start">
 
-      <h2 class="font-monospace fs-2 fw-600 mb-0">
+      <h2 class="font-monospace fs-2 fw-500 mb-0">
         <%= icon_div @conn, "mdi-account", [class: "icon baseline me-2"] %><span>Adam Piontek</span>
       </h2>
 
-      <div class="font-monospace fs-5">Desktop Systems Engineer.</div>
+      <div class="font-monospace text-gray-500 fs-5">Desktop Systems Engineer.</div>
 
       <div id="social-icons" class="mt-1">
         <%= for s <- socials_prof(@conn) do %>
@@ -24,21 +24,21 @@
 
       <div class="separator mt-4 mb-2">qualifications</div>
 
-      <ul>
+      <ul class="text-gray-200">
         <%= for qualif <- resume_qualifs() do %>
           <%= content_tag :li, qualif %>
         <% end %>
       </ul>
 
-      <div class="separator mt-4 mb-2">experience</div>
+      <div class="separator mt-4 mb-n2">experience</div>
 
       <%= for %{employer: employer, positions: positions} <- resume_experience() do %>
-        <div class="fs-5 border-bottom border-gray mt"><%= employer%></div>
+        <div class="fs-5 border-bottom border-gray mt-3 mb-2"><%= employer%></div>
         <div class="mb-3">
         <%= for position <- positions do %>
           <div>
-            <span><%= position.title %></span>
-            <span class="text-gray-300">&middot; <%= position.start %> &mdash; <%= position.end %></span>
+            <span class="text-gray-200"><%= position.title %></span>
+            <span class="text-gray-500">&middot; <%= position.start %> &mdash; <%= position.end %></span>
           </div>
         <% end %>
         </div>

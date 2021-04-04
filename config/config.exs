@@ -7,6 +7,7 @@
 # General application configuration
 use Mix.Config
 
+# Tzdata db config
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
 # Custom application global variables

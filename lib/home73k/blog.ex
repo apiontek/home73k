@@ -18,9 +18,16 @@ defmodule Home73k.Blog do
   def list_posts, do: @posts
   def list_tags, do: @tags
 
-  # defmodule NotFoundError do
-  #   defexception [:message, plug_status: 404]
-  # end
+  defmodule NotFoundError do
+    defexception [:message, plug_status: 404]
+  end
+
+  def get_post_by_id!(id) do
+    case Enum.find(list_posts(), nil, &(&1.id == id)) do
+      %Post{} = post -> post
+      nil -> raise NotFoundError, "post with id=#{id} not found"
+    end
+  end
 
   # def get_posts_by_tag!(tag) do
   #   case Enum.filter(list_posts(), &(tag in &1.tags)) do

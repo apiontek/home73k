@@ -1,4 +1,4 @@
-defmodule Home73kWeb.PageLiveTest do
+defmodule Home73kWeb.BlogLiveTest do
   use Home73kWeb.ConnCase
 
   import Phoenix.LiveViewTest

@@ -1,8 +1,8 @@
 defmodule Home73k.Blog.Post do
-  @enforce_keys [:title, :slug, :date, :author, :tags, :lede, :body, :corpus]
-  defstruct [:title, :slug, :date, :author, :tags, :lede, :body, :corpus]
+  @enforce_keys [:title, :id, :date, :author, :tags, :lede, :body, :corpus]
+  defstruct [:title, :id, :date, :author, :tags, :lede, :body, :corpus]
 
-  @strip_words ~w(the and are for not but had has was all any too one you his her can that with have this will your from they want been much some very them into which then now get its youll youre)
+  @strip_words ~w(the and are for not but had has was all any too one you his her can that with have this will your from they want been much some very them into which then now get its youll youre isnt wasnt)
 
   @doc """
   The public parse!/1 function begins the post parse process by reading
@@ -36,7 +36,7 @@ defmodule Home73k.Blog.Post do
   # """
   defp parse_frontmatter([fm, md]) do
     case parse_frontmatter_string(fm) do
-      {%{} = parsed_fm, _} -> {set_post_slug(parsed_fm), String.trim(md)}
+      {%{} = parsed_fm, _} -> {set_post_id(parsed_fm), String.trim(md)}
       {:error, _} -> nil
     end
   end
@@ -46,6 +46,11 @@ defmodule Home73k.Blog.Post do
   # """ parse_lede/1
   # Look for lede/excerpt/summary in content and extract it if present.
   # We return updated frontmatter, and content with <!--more--> stripped.
+  defp parse_lede({%{lede: lede} = fm, md}) do
+    lede = String.trim(lede) |> Earmark.as_html!()
+    {Map.put(fm, :lede, lede), md}
+  end
+
   defp parse_lede({fm, md}) do
     {lede, body_md} = String.split(md, "<!--more-->", parts: 2) |> extract_lede()
     {Map.put(fm, :lede, lede), String.replace(body_md, "<!--more-->", " ")}
@@ -58,6 +63,8 @@ defmodule Home73k.Blog.Post do
   # TODO: handle syntax highlighting
   defp parse_body({fm, md}) do
     Map.put(fm, :body, Earmark.as_html!(md))
+    # TODO: Earmark.as_ast(md) |> parse_body(fm)
+    # def parse_body({:ok, ast, _}, fm)
   end
 
   defp parse_body(_), do: nil
@@ -66,12 +73,15 @@ defmodule Home73k.Blog.Post do
   # Create a searchable word list for the post, for live searching
   defp build_corpus(%{title: title, lede: lede, body: body, tags: tags} = post_data) do
     # initialize corpus string from: title, lede, body, tags
-    corpus = (tags ++ [title, (lede && lede) || " ", body]) |> Enum.join(" ") |> String.downcase()
-
-    # scrub out (but replace with spaces):
-    # code blocks, html tags, html entities, newlines, forward and back slashes
-    html_scrub_regex = ~r/(<pre><code(.|\n)*?<\/code><\/pre>)|(<(.|\n)+?>)|(&#(.)+?;)|(&(.)+?;)|\n|\/|\\/
-    corpus = Regex.replace(html_scrub_regex, corpus, " ")
+    # grab text only, rejecting HTML
+    # downcase & scrub line breaks, slashes
+    corpus =
+      (tags ++ [title, (lede && lede) || " ", body])
+      |> Enum.join(" ")
+      |> Floki.parse_fragment!()
+      |> Floki.text()
+      |> String.downcase()
+      |> String.replace(["\n", "/", "\\", "(", ")", ":", "=", "_", ".", ",", "[", "]"], " ")
 
     # restrict corpus to letters & numbers,
     # then split to words (space delim), trimming as we go
@@ -108,8 +118,7 @@ defmodule Home73k.Blog.Post do
   # """
   defp parse_frontmatter_string(fm) do
     try do
-      String.trim_leading(fm, "-")
-      |> Code.eval_string()
+      Code.eval_string(fm)
     rescue
       _ -> {:error, nil}
     end
@@ -124,22 +133,23 @@ defmodule Home73k.Blog.Post do
 
   defp extract_lede([body]), do: {nil, body}
 
-  # """ set_frontmatter_slug
-  # If no slug in frontmatter, convert title to slug and add to map
+  # """ set_post_id
+  # If no id in frontmatter, convert title to id and add to map
   # """
-  defp set_post_slug(%{slug: _} = fm), do: fm
+  defp set_post_id(%{id: _} = fm), do: fm
 
-  defp set_post_slug(%{title: title} = fm) do
-    Map.put(fm, :slug, parse_title_to_slug(title))
+  defp set_post_id(%{title: title} = fm) do
+    Map.put(fm, :id, parse_title_to_id(title))
   end
 
-  # """ parse_title_to_slug
-  # Takes a post title and returns a slug cleansed for URI request path
+  # """ parse_title_to_id
+  # Takes a post title and returns a id cleansed for URI request path
   # """
-  defp parse_title_to_slug(title) do
-    title = String.downcase(title)
+  def parse_title_to_id(title) do
+    title_text = Floki.parse_fragment!(title) |> Floki.text() |> String.downcase()
 
-    Regex.replace(~r/[^a-z0-9 ]/, title, "")
+    ~r/[^a-z0-9 ]/
+    |> Regex.replace(title_text, "")
     |> String.split(" ", trim: true)
     |> Stream.reject(&reject_word?/1)
     |> Enum.join("-")
@@ -147,7 +157,7 @@ defmodule Home73k.Blog.Post do
 
   # """ reject_word?
   # Returns true to reject short or common words
-  # Used by parse_title_to_slug and build_corpus
+  # Used by parse_title_to_id and build_corpus
   # """
   defp reject_word?(word), do: String.length(word) < 3 || word in @strip_words
 end

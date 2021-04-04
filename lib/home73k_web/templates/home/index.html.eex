@@ -13,11 +13,11 @@
 
     <div class="col-auto justify-content-start ms-lg-3">
 
-      <h2 class="font-monospace fs-2 fw-600 mb-0">
+      <h2 class="font-monospace fs-2 fw-500 mb-0">
         <%= icon_div @conn, "mdi-account", [class: "icon baseline me-2"] %><span>Adam Piontek</span>
       </h2>
 
-      <div class="font-monospace fs-5">Desktop Systems Engineer. Human.</div>
+      <div class="font-monospace text-gray-500 fs-5">Desktop Systems Engineer. Human.</div>
 
       <div id="social-icons" class="mt-1">
         <%= for s <- socials(@conn) do %>
