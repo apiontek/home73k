@@ -48,7 +48,4 @@ defmodule Home73kWeb.BlogLive do
   #       do: {app, vsn}
   # end
 
-  defp format_date(date) do
-    Calendar.strftime(date, "%B %-d, %Y")
-  end
 end

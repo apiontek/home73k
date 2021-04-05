@@ -1,7 +1,7 @@
 ---
 %{
   title: "Mom's Meatloaf",
-  date: ~N[2020-12-29 01:00:00],
+  date: ~D[2020-12-29],
   author: "Adam Piontek",
   tags: ["food", "recipe", "mealprep", "pandemiceats", "plaguecooking"]
 }

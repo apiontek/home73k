@@ -16,6 +16,29 @@
 /* Navbar custom styling */
 @import "nav-bar-help";
 
+/* Pygments syntax highlighting styles */
+@import "pygments";
+
+/* code highlighting */
+pre.pygments {
+  line-height: 125%;
+  background-color: #272822 !important;
+  overflow: wrap !important;
+  padding: 0.75rem;
+  border-radius: .25em;
+  code {
+    font-family: $font-family-code;
+    color: #eeffff;
+  }
+}
+code.inline {
+  background-color: #272822;
+  color: #eeffff;
+  padding: .2em .5em;
+  border-radius: .25em;
+  display: inline;
+}
+
 /* main */
 html,
 body {
@@ -24,12 +47,12 @@ body {
   height: 100%;
 }
 a {
-  color: $primary;
+  color: $secondary;
   &:visited {
     color: $info;
   }
   &:hover {
-    color: $secondary;
+    color: $primary;
   }
 }
 .border-gray-900 {
@@ -59,14 +82,8 @@ a {
 .fw-600 {
   font-weight: 600;
 }
-.font-sans-serif {
-  font-family: $font-family-sans-serif;
-}
 .font-brand {
   font-family: $font-family-brand;
-}
-.font-code {
-  font-family: $font-family-code;
 }
 .fs-larger {
   font-size: larger;
@@ -124,10 +141,8 @@ a {
     margin-top: 2rem;
   }
 }
-.post-lede.lead {
-  font-size: 1.25rem;
-  font-weight: 300;
-  color: $gray-300;
+.post li {
+  line-height: 1.75rem;
 }
 
 /* extra */

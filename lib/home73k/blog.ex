@@ -3,7 +3,7 @@ defmodule Home73k.Blog do
 
   Application.ensure_all_started(:earmark)
 
-  posts_paths = "priv/content/**/*.md" |> Path.wildcard()
+  posts_paths = "#{Home73k.app_blog_content()}/**/*.md" |> Path.wildcard()
 
   posts =
     for post_path <- posts_paths do
@@ -11,7 +11,7 @@ defmodule Home73k.Blog do
       Post.parse!(post_path)
     end
 
-  @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
+  @posts Enum.sort_by(posts, & &1.date, {:desc, Date})
 
   @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
 

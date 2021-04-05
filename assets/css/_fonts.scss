@@ -1,35 +1,23 @@
-/* Fontsource Work Sans */
-@import "../node_modules/@fontsource/work-sans/100.css";        /* thin | normal */
-@import "../node_modules/@fontsource/work-sans/100-italic.css"; /* thin | italic */
-// @import "../node_modules/@fontsource/work-sans/200.css"; /* thin-light | normal */
-// @import "../node_modules/@fontsource/work-sans/200-italic.css"; /* thin-light | italic */
-@import "../node_modules/@fontsource/work-sans/300.css"; /* light | normal */
-@import "../node_modules/@fontsource/work-sans/300-italic.css"; /* light | italic */
-@import "../node_modules/@fontsource/work-sans/400.css"; /* normal | normal */
-@import "../node_modules/@fontsource/work-sans/400-italic.css"; /* normal | italic */
-// @import "../node_modules/@fontsource/work-sans/500.css"; /* heavier | normal */
-// @import "../node_modules/@fontsource/work-sans/500-italic.css"; /* heavier | italic */
-@import "../node_modules/@fontsource/work-sans/600.css"; /* heavier? | normal */
-@import "../node_modules/@fontsource/work-sans/600-italic.css"; /* heavier | italic */
-@import "../node_modules/@fontsource/work-sans/700.css"; /* bold | normal */
-@import "../node_modules/@fontsource/work-sans/700-italic.css"; /* bold | italic */
-// @import "../node_modules/@fontsource/work-sans/800.css"; /* bolder? | normal */
-// @import "../node_modules/@fontsource/work-sans/800-italic.css"; /* bolder? | italic */
-// @import "../node_modules/@fontsource/work-sans/900.css";        /* black | normal */
-// @import "../node_modules/@fontsource/work-sans/900-italic.css"; /* black | italic */
-
-
-/* Fontsource Righteous */
+/* brand : Fontsource Righteous */
 @import "../node_modules/@fontsource/righteous/400.css"; /* normal | normal */
 
-/* Fontsource Fira Mono */
-@import "../node_modules/@fontsource/fira-mono/400.css"; /* normal | normal */
-@import "../node_modules/@fontsource/fira-mono/500.css"; /* heavier normal? */
-// @import "../node_modules/@fontsource/fira-mono/700.css"; /* bold | normal */
-
-/* Fontsource Fira Code */
+/* monospace : Fontsource Fira Code */
 @import "../node_modules/@fontsource/fira-code/300.css"; /* light | normal */
 @import "../node_modules/@fontsource/fira-code/400.css"; /* normal | normal */
-// @import "../node_modules/@fontsource/fira-code/500.css"; /* heavier normal? */
-// @import "../node_modules/@fontsource/fira-code/600.css"; /* heavier normal? */
+@import "../node_modules/@fontsource/fira-code/500.css"; /* heavier normal? */
+@import "../node_modules/@fontsource/fira-code/600.css"; /* heavier normal? */
 @import "../node_modules/@fontsource/fira-code/700.css"; /* bold | normal */
+
+
+/* Fontsource Open Sans */
+@import "../node_modules/@fontsource/open-sans/300.css"; /* light | normal */
+@import "../node_modules/@fontsource/open-sans/300-italic.css"; /* light | italic */
+@import "../node_modules/@fontsource/open-sans/400.css"; /* normal | normal */
+@import "../node_modules/@fontsource/open-sans/400-italic.css"; /* normal | italic */
+@import "../node_modules/@fontsource/open-sans/600.css"; /* heavier? | normal */
+@import "../node_modules/@fontsource/open-sans/600-italic.css"; /* heavier | italic */
+@import "../node_modules/@fontsource/open-sans/700.css"; /* bold | normal */
+@import "../node_modules/@fontsource/open-sans/700-italic.css"; /* bold | italic */
+@import "../node_modules/@fontsource/open-sans/800.css"; /* bolder? | normal */
+@import "../node_modules/@fontsource/open-sans/800-italic.css"; /* bolder? | italic */
+

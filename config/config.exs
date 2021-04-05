@@ -11,7 +11,10 @@ use Mix.Config
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
 # Custom application global variables
-config :home73k, :app_global_vars, time_zone: "America/New_York"
+config :home73k, :app_global_vars,
+  time_zone: "America/New_York",
+  blog_content: "priv/content",
+  pygmentize_bin: "priv/pygments/bin/pygmentize"
 
 # Configures the endpoint
 config :home73k, Home73kWeb.Endpoint,

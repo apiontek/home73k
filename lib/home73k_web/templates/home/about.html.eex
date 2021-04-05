@@ -1,6 +1,6 @@
 <main class="container d-flex justify-content-center">
 
-  <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6 border-bottom border-gray pb-3 mb-5 mt-3">
+  <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 border-bottom border-gray pb-3 mb-5 mt-3">
 
     <h2 class="fs-2 fw-600 mb-0">About</h2>
 

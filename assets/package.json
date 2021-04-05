@@ -8,17 +8,18 @@
   },
   "dependencies": {
     "@fontsource/fira-code": "^4.x",
-    "@fontsource/fira-mono": "^4.x",
+    "@fontsource/open-sans": "^4.2.2",
     "@fontsource/righteous": "^4.x",
-    "@fontsource/work-sans": "^4.2.2",
     "@mdi/svg": "^5.x",
     "@popperjs/core": "^2.x",
+    "babel-plugin-prismjs": "^2.0.1",
     "bootstrap": "^5.0.0-beta3",
     "bootstrap-icons": "^1.x",
     "hamburgers": "^1.x",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
+    "prismjs": "^1.23.0",
     "topbar": "^1.x"
   },
   "devDependencies": {

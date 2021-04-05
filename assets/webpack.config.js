@@ -93,7 +93,7 @@ module.exports = (env, options) => {
                 "../**/live/**/*.ex",
                 "./js/**/*.js",
               ]),
-              safelist: [/phx/, /topbar/],
+              safelist: [/phx/, /topbar/, /linenos/, /pygments/],
             }),
           ]
     ),

@@ -1,22 +1,22 @@
 <main class="container d-flex justify-content-center">
 
-  <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6 pb-2 mb-4 mt-3">
+  <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 pb-2 mb-4 mt-3">
 
     <%= for post <- @posts do %>
 
       <div class="post border-bottom border-gray pb-4 mb-3">
 
-        <h2 class="post-title fs-2 fw-normal mb-2">
+        <h2 class="post-title fs-2 fw-600 mb-2">
           <%=  live_redirect "#{post.title}", to: Routes.post_path(@socket, :show, post) %>
         </h2>
 
-        <div class="post-date font-monospace text-gray-500 <%= if length(post.tags) == 0, do: "mb-3" %>">
-          <%= icon_div @socket, "mdi-calendar-clock", [class: "icon baseline"] %>
-          <%= post.date |> format_date() %>
+        <div class="post-date font-monospace text-gray-400 <%= if length(post.tags) == 0, do: "mb-3" %>">
+          <%= icon_div @socket, "mdi-calendar-clock", [class: "icon baseline me-2"] %><%= post.date |> format_date() %>
+          by <%= icon_div @socket, "mdi-account", [class: "icon baseline me-1"] %>Adam Piontek
         </div>
 
         <%= if length(post.tags) > 0 do %>
-          <div class="post-tags fs-6 mb-3">
+          <div class="post-tags fs-smaller mb-3">
           <%= icon_div @socket, "mdi-tag-multiple", [class: "icon baseline"] %>
           <%= for {tag, i} <- Enum.with_index(post.tags) do %>
             #<%= tag %><%= i < (length(post.tags) - 1) && "," || "" %>
@@ -24,7 +24,7 @@
           </div>
         <% end %>
 
-        <div class="post-lede lead">
+        <div class="post-lede">
           <%= raw post.lede %>
         </div>
 

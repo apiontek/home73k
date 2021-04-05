@@ -2,7 +2,7 @@
 %{
   title: "If no one will do it, it needn’t be done — on BS jobs and toddler bosses",
   id: "if-noone-will-do-it-neednt-be-done-bs-jobs-toddler-bosses",
-  date: ~N[2018-05-17 15:10:00],
+  date: ~D[2018-05-17],
   author: "Adam Piontek",
   tags: ["economics", "society", "work"],
 }

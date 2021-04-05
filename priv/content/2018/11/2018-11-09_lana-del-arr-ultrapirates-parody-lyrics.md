@@ -2,7 +2,7 @@
 %{
   title: "Lana Del Arr's ‘Ultrapirates’ (parody lyrics for songs from Lana Del Rey’s ‘Ultraviolence’",
   id: "lana-del-arr-ultrapirates-parody-lyrics",
-  date: ~N[2018-11-09 13:30:00],
+  date: ~D[2018-11-09],
   author: "Adam Piontek",
   tags: ["song", "lyrics", "lanadelrey", "music", "parody", "pirates"],
 }

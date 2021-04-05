@@ -1,4 +1,6 @@
 defmodule Home73k.Blog.Post do
+  alias Home73k.Highlighter
+
   @enforce_keys [:title, :id, :date, :author, :tags, :lede, :body, :corpus]
   defstruct [:title, :id, :date, :author, :tags, :lede, :body, :corpus]
 
@@ -59,12 +61,10 @@ defmodule Home73k.Blog.Post do
   defp parse_lede(_), do: nil
 
   # """ parse_body/1
-  # Convert body markdown to html
-  # TODO: handle syntax highlighting
+  # Convert body markdown to html, and highlight code fence blocks
   defp parse_body({fm, md}) do
-    Map.put(fm, :body, Earmark.as_html!(md))
-    # TODO: Earmark.as_ast(md) |> parse_body(fm)
-    # def parse_body({:ok, ast, _}, fm)
+    html = Earmark.as_html!(md) |> Highlighter.highlight_code_blocks()
+    Map.put(fm, :body, html)
   end
 
   defp parse_body(_), do: nil
@@ -128,8 +128,10 @@ defmodule Home73k.Blog.Post do
   # Handle split of post body. If lede found, return as html with body.
   # Otherwise return nil with body.
   # """
-  defp extract_lede([lede, body]),
-    do: {String.trim_trailing(lede) |> Earmark.as_html!(), String.trim_leading(body)}
+  defp extract_lede([lede, body]) do
+    lede_html = String.trim_trailing(lede) |> Earmark.as_html!() |> Highlighter.highlight_code_blocks()
+    {lede_html, String.trim_leading(body)}
+  end
 
   defp extract_lede([body]), do: {nil, body}
 

@@ -2,7 +2,7 @@
 %{
   title: "Pi-Hole Love",
   id: "pihole-love",
-  date: ~N[2018-03-24 14:00:00],
+  date: ~D[2018-03-24],
   author: "Adam Piontek",
   tags: ["home", "privacy", "tech", "raspberrypi"],
 }

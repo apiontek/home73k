@@ -1,7 +1,7 @@
 ---
 %{
   title: "Enable Visual Studio CLI environment in PowerShell",
-  date: ~N[2020-08-01 02:00:00],
+  date: ~D[2020-08-01],
   author: "Adam Piontek",
   tags: ["coding", "tech", "elixir", "windows", "powershell", "scripting"],
 }
