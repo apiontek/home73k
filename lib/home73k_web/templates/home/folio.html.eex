@@ -17,7 +17,7 @@
           <%= icon_div @conn, "mdi-account-hard-hat", [class: "icon baseline me-2"] %><span>Working on it!</span>
         </h2>
 
-        <div class="font-monospace text-gray-200 fs-5">I've made some things over the years (like this site!), and at some point I'll highlight some here.</div>
+        <div class="font-monospace text-gray-300 fs-5">I've made some things over the years (like this site!), and at some point I'll highlight some here.</div>
 
       </div>
 

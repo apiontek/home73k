@@ -8,7 +8,7 @@
         <%= icon_div @conn, "mdi-account", [class: "icon baseline me-2"] %><span>Adam Piontek</span>
       </h2>
 
-      <div class="font-monospace text-gray-500 fs-5">Desktop Systems Engineer.</div>
+      <div class="font-monospace text-gray-300 fs-5">Desktop Systems Engineer.</div>
 
       <div id="social-icons" class="mt-1">
         <%= for s <- socials_prof(@conn) do %>
@@ -24,7 +24,7 @@
 
       <div class="separator mt-4 mb-2">qualifications</div>
 
-      <ul class="text-gray-200">
+      <ul class="text-gray-100">
         <%= for qualif <- resume_qualifs() do %>
           <%= content_tag :li, qualif %>
         <% end %>
@@ -36,9 +36,9 @@
         <div class="fs-5 border-bottom border-gray mt-3 mb-2"><%= employer%></div>
         <div class="mb-3">
         <%= for position <- positions do %>
-          <div>
-            <span class="text-gray-200"><%= position.title %></span>
-            <span class="text-gray-500">&middot; <%= position.start %> &mdash; <%= position.end %></span>
+          <div class="d-flex justify-content-between">
+            <span class="text-gray-100"><%= position.title %></span>
+            <span class="text-gray-300"><%= position.start %> &mdash; <%= position.end %></span>
           </div>
         <% end %>
         </div>

@@ -4,14 +4,14 @@
 
     <h2 class="fs-2 fw-600 mb-0">About</h2>
 
-    <div class="fs-5 font-monospace text-gray-500">Adam Piontek. Human.</div>
+    <div class="fs-5 font-monospace text-gray-300">Adam Piontek. Human.</div>
 
 
     <figure class="my-4 border-start border-gray border-5 ps-3 py-2">
       <blockquote class="blockquote">
         <p>&ldquo;Probabilities collapse. I become increasingly unlikely.&rdquo;</p>
       </blockquote>
-      <figcaption class="blockquote-footer text-gray-400 mb-0">
+      <figcaption class="blockquote-footer text-gray-300 mb-0">
         Robert Charles Wilson, <cite title="Divided by Infinity">Divided by Infinity</cite>
       </figcaption>
     </figure>

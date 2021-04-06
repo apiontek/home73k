@@ -3,7 +3,7 @@
   <div class="d-flex flex-column-reverse flex-lg-row align-items-lg-end mt-5">
 
     <div class="col-auto mt-3 mt-lg-0">
-      <%= img_tag Routes.static_path(@conn, "/images/cat-roof_portrait.jpg"),
+      <%= img_tag Routes.static_path(@conn, "/images/cat-roof_portrait.webp"),
           class: "img-fluid border border-20 border-gray-900 rounded-2",
           alt: "My cat Babka, stuck on a roof when she was still just a stray.",
           title: "My cat Babka, stuck on a roof when she was still just a stray."
@@ -17,7 +17,7 @@
         <%= icon_div @conn, "mdi-account", [class: "icon baseline me-2"] %><span>Adam Piontek</span>
       </h2>
 
-      <div class="font-monospace text-gray-500 fs-5">Desktop Systems Engineer. Human.</div>
+      <div class="font-monospace text-gray-300 fs-5">Desktop Systems Engineer. Human.</div>
 
       <div id="social-icons" class="mt-1">
         <%= for s <- socials(@conn) do %>
