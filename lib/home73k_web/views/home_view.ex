@@ -9,7 +9,7 @@ defmodule Home73kWeb.HomeView do
         prof: false,
         target: "_self"
       },
-      %{icon: "mdi-rss", url: "https://w.73k.us/feed/", prof: false, target: "_blank"},
+      %{icon: "mdi-rss", url: Routes.feed_path(conn, :rss), prof: false, target: "_blank"},
       %{
         icon: "mdi-linkedin",
         url: "https://www.linkedin.com/in/adampiontek/",
