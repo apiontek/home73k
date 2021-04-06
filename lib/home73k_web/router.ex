@@ -1,5 +1,6 @@
 defmodule Home73kWeb.Router do
   use Home73kWeb, :router
+  alias Home73kWeb.CSPHeader
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -8,6 +9,7 @@ defmodule Home73kWeb.Router do
     plug :put_root_layout, {Home73kWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug CSPHeader
   end
 
   pipeline :xml_rss do
