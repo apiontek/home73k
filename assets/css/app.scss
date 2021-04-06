@@ -50,7 +50,8 @@ a {
   color: $gray-100;
   border-bottom: $secondary 2px solid;
   text-decoration: none;
-  &.navbar-brand {
+  &.navbar-brand,
+  &.nav-link {
     border-bottom: none;
   }
   &:visited {

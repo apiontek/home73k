@@ -2,7 +2,7 @@
 %{
   title: "Creating a gif from a video",
   id: "creating-gif-from-video",
-  date: ~D[2020-05-23],
+  date: ~N[2020-05-23 15:00:00],
   author: "Adam Piontek",
   tags: ["cli", "ffmpeg ", "gif", "multimedia", "video", "notes"],
 }

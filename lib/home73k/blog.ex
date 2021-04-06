@@ -16,7 +16,7 @@ defmodule Home73k.Blog do
     Path.wildcard("#{Home73k.app_blog_content()}/**/*.md") |> :erlang.md5() != unquote(post_paths_hash)
   end
 
-  @posts Enum.sort_by(posts, & &1.date, {:desc, Date})
+  @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
   @post_count length(@posts)
 
   @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()

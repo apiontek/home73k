@@ -83,7 +83,7 @@ defmodule Home73kWeb.BlogLive do
     |> Enum.at(page_int - 1)
   end
 
-  defp get_page_count, do: Integer.floor_div(Blog.post_count(), @page_size) + rem(Blog.post_count(), @page_size)
+  defp get_page_count, do: Kernel.ceil(Blog.post_count() / @page_size)
 
   defp assign_prev_next(socket, page_int) do
     socket

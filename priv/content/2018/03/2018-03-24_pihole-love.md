@@ -2,13 +2,13 @@
 %{
   title: "Pi-Hole Love",
   id: "pihole-love",
-  date: ~D[2018-03-24],
+  date: ~N[2018-03-24 15:00:00],
   author: "Adam Piontek",
   tags: ["home", "privacy", "tech", "raspberrypi"],
 }
 ---
 
-2021 UPDATE: while the pi-hole is a very cool project, I eventually grew tired of maintaining a separate DNS service. I still use unbound on my edgerouter but now my raspberry pi just runs some local web services.
+*April 2021 update:* while the pi-hole is a very cool project, I eventually grew tired of maintaining a separate DNS service. I still use unbound on my edgerouter but now my raspberry pi just runs some local web services.
 
 Original post below:
 
