@@ -29,5 +29,12 @@
 
       <%= @inner_content %>
 
+      <%#= if footer_absolute?(@conn) do %>
+      <footer class="footer73k footer bottom-0 end-0 bg-dark">
+        <div class="px-2 px-sm-3">
+          <span class="text-gray-400">&copy; Copyright <%= Date.utc_today |> Map.get(:year) %> Adam Piontek</span>
+        </div>
+      </footer>
+
   </body>
 </html>

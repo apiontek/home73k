@@ -1,6 +1,6 @@
 <main class="container-fluid d-flex justify-content-center align-items-center">
 
-  <div class="d-flex flex-column mt-5">
+  <div class="d-flex flex-column mt-5 pb-3 mb-5">
 
     <div class="col-auto justify-content-start">
 

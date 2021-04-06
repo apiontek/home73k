@@ -2,7 +2,14 @@ defmodule Home73kWeb.LayoutView do
   use Home73kWeb, :view
 
   def navbar_fixed?(conn) do
-    [Routes.home_path(conn, :index), Routes.home_path(conn, :folio)]
+    [:index, :folio]
+    |> Enum.map(&Routes.home_path(conn, &1))
+    |> Enum.member?(Phoenix.Controller.current_path(conn))
+  end
+
+  def footer_absolute?(conn) do
+    [:index, :folio, :resume]
+    |> Enum.map(&Routes.home_path(conn, &1))
     |> Enum.member?(Phoenix.Controller.current_path(conn))
   end
 
