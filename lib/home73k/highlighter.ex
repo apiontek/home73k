@@ -5,7 +5,8 @@ defmodule Home73k.Highlighter do
 
   alias Home73k.Temp
 
-  @pygments_cmd Home73k.app_pygmentize_bin() |> Path.expand()
+  @chroma_bin Home73k.app_chroma_bin() |> Path.expand()
+  @style "solarized-dark256"
 
   @doc """
   Highlights all code block in an already generated HTML document.
@@ -23,15 +24,12 @@ defmodule Home73k.Highlighter do
     tmp_file = Temp.file()
     File.write!(tmp_file, unescaped_code)
 
-    # pygmentize the code via temp file
-    pyg_args = ["-l", lang, "-f", "html", "-O", "cssclass=pygments", tmp_file]
-    {highlighted, _} = System.cmd(@pygments_cmd, pyg_args)
+    # use chroma to highlight the code via temp file
+    bin_args = ["-l", lang, "-f", "html", "-s", @style, "--html-only", "--html-prevent-surrounding-pre", tmp_file]
+    {highlighted, _} = System.cmd(@chroma_bin, bin_args)
 
-    # correct pygment wrapping markup
-    highlighted
-    |> String.replace("<span></span>", "")
-    |> String.replace("<div class=\"pygments\"><pre>", "<pre class=\"pygments\"><code class=\"language-#{lang}\">")
-    |> String.replace("</pre></div>", "</code></pre>")
+    # return properly wrapped highlighted code
+    ~s(<pre class="chroma"><code class="language-#{lang}">#{highlighted}</code></pre>)
   end
 
   entities = [{"&amp;", ?&}, {"&lt;", ?<}, {"&gt;", ?>}, {"&quot;", ?"}, {"&#39;", ?'}]

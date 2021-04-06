@@ -16,24 +16,21 @@
 /* Navbar custom styling */
 @import "nav-bar-help";
 
-/* Pygments syntax highlighting styles */
-@import "pygments";
+/* Chroma syntax highlighting styles */
+@import "chroma";
 
 /* code highlighting */
-pre.pygments {
-  line-height: 125%;
-  background-color: #272822 !important;
-  overflow: wrap !important;
-  padding: 0.75rem;
-  border-radius: .25em;
+pre.chroma {
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  border-radius: .5em;
   code {
     font-family: $font-family-code;
-    color: #eeffff;
   }
 }
 code.inline {
-  background-color: #272822;
-  color: #eeffff;
+  background-color: #1c1c1c;
+  color: #8a8a8a;
   padding: .2em .5em;
   border-radius: .25em;
   display: inline;

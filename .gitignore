@@ -41,6 +41,8 @@ npm-debug.log
 
 # Ignore the pygments venv directory
 /priv/pygments/
+# Ignore chroma bin directory
+/priv/chroma/
 
 # dev
 TODO.md

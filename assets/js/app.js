@@ -43,9 +43,6 @@ import { Socket } from "phoenix";
 import topbar from "topbar";
 import { LiveSocket } from "phoenix_live_view";
 
-// // Prismjs import
-// import Prism from "prismjs"
-
 // // Bootstrap v5 js imports
 // import "bootstrap/js/dist/alert";
 import "bootstrap/js/dist/collapse";
