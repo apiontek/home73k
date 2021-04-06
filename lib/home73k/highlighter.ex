@@ -3,9 +3,10 @@ defmodule Home73k.Highlighter do
   Performs code highlighting.
   """
 
+  import Home73k, only: [app_chroma_bin: 0]
   alias Home73k.Temp
 
-  @chroma_bin Home73k.app_chroma_bin() |> Path.expand()
+  @chroma_bin app_chroma_bin() |> Path.expand()
 
   @doc """
   Highlights all code in HTML (fenced code blocks and inlined code)

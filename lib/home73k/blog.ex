@@ -1,9 +1,10 @@
 defmodule Home73k.Blog do
+  import Home73k, only: [app_blog_content: 0]
   alias Home73k.Blog.Post
 
   Application.ensure_all_started(:earmark)
 
-  post_paths = "#{Home73k.app_blog_content()}/**/*.md" |> Path.wildcard()
+  post_paths = "#{app_blog_content()}/**/*.md" |> Path.wildcard()
   post_paths_hash = :erlang.md5(post_paths)
 
   posts =
@@ -13,7 +14,7 @@ defmodule Home73k.Blog do
     end
 
   def __mix_recompile__?() do
-    Path.wildcard("#{Home73k.app_blog_content()}/**/*.md")
+    Path.wildcard("#{app_blog_content()}/**/*.md")
     |> :erlang.md5() != unquote(post_paths_hash)
   end
 
