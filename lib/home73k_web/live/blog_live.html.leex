@@ -17,7 +17,7 @@
         <div class="post border-bottom border-gray pb-4 mb-3">
 
           <h2 class="post-title fs-2 fw-600 mb-2">
-            <%=  live_redirect "#{post.title}", to: Routes.blog_path(@socket, :show, post) %>
+            <%= @live_action == :show && post.title || live_redirect "#{post.title}", to: Routes.blog_path(@socket, :show, post) %>
           </h2>
 
           <div class="post-date font-monospace text-gray-400 <%= if length(post.tags) == 0, do: "mb-3" %>">

@@ -8,11 +8,13 @@
 }
 ---
 
-*April 2021 update:* while the pi-hole is a very cool project, I eventually grew tired of maintaining a separate DNS service. I still use unbound on my edgerouter but now my raspberry pi just runs some local web services.
+***April 2021 update:*** while the pi-hole is a very cool project, I eventually grew tired of maintaining a separate DNS service. I still use unbound on my edgerouter but now my raspberry pi just runs some local web services.
 
 Original post below:
 
 <!--more-->
+
+---
 
 I'm really liking my [Pi-Hole](https://pi-hole.net/)
 

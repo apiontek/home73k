@@ -7,7 +7,13 @@
 }
 ---
 
-Since I'm enjoying this new minimalist blogging platform, and my main site has languished for years (I've tried doing a static site via hugo, then moved back to a Wordpress blog, but I didn't really like or make use of either), I figured it was time to exercise some old creative muscles and make a sort of minimalist home site.<!--more-->
+***April 2021 update:*** After a few months, I decided I wanted my blog integrated, and I wanted to do it with Elixir, so I'm no longer using the static webpack-built website, but the style is basically the same. So anyway, the below is outdated but it was fun learning.
+
+---
+
+Since I'm enjoying this new minimalist blogging platform, and my main site has languished for years (I've tried doing a static site via hugo, then moved back to a Wordpress blog, but I didn't really like or make use of either), I figured it was time to exercise some old creative muscles and make a sort of minimalist home site.
+
+<!--more-->
 
 Way back in the late 90s and 2000s I would fashion HTML by hand and get a little artsy. This wasn't quite that, but it was fun!
 
