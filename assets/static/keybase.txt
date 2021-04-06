@@ -1,0 +1,57 @@
+==================================================================
+https://keybase.io/adampiontek
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://73k.us
+  * I am adampiontek (https://keybase.io/adampiontek) on keybase.
+  * I have a public key ASAC1N4cUJgo-XdWbfHCv-Ts59VWScxDIl2z3TzRC7GLVQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202813155ef2aa55c8d0b721bec0c3f708be8b2bec6e0ab0cdfee4a5439da5b4710a",
+      "host": "keybase.io",
+      "kid": "012002d4de1c509828f977566df1c2bfe4ece7d55649cc43225db3dd3cd10bb18b550a",
+      "uid": "7137a9f7aab18f6d03d84e88e0815919",
+      "username": "adampiontek"
+    },
+    "merkle_root": {
+      "ctime": 1537382503,
+      "hash": "2f9a68efbf80c0e105dd2cb25bfd658f19e1f2f768e6d1ab8cf3a7b250e1de73452ae0f090020472ee4b294ae2e677f19ef7cc99ec18582ff859b91646a60918",
+      "hash_meta": "12b0c6750a262e6ec91be8f5c1e1e0238d61fce069756c2c8e7329748c746560",
+      "seqno": 3633563
+    },
+    "service": {
+      "entropy": "qBHvAztfyekNI2UWFHU2tLLm",
+      "hostname": "73k.us",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.7.0"
+  },
+  "ctime": 1537382525,
+  "expire_in": 504576000,
+  "prev": "bd679d68f8b8b1cea0c64aad1d09c97b85ff6cbedd1a3eb6bbc8fb45001f9eae",
+  "seqno": 23,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgAtTeHFCYKPl3Vm3xwr/k7OfVVknMQyJds9080Quxi1UKp3BheWxvYWTESpcCF8QgvWedaPi4sc6gxkqtHQnJe4X/bL7dGj62u8j7RQAfnq7EINGlFWYyaoF5To5v8x58Z8VQguWyPcLWQ3VtJCQ8CpiuAgHCo3NpZ8RA8tvCrcDGhqcQdQxJfB92kJAFBi2uoohP00ioXpYH0i9LsfbK52HX+Mo8tyx2bjUTUf3rCZZWrlZAbj+DUki9A6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJUXz44TMmGELdJUmMEpNI4kuoGqiHufTSAugViNVLxRo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/adampiontek
+
+==================================================================
+
