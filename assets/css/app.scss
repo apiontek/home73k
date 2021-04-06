@@ -19,19 +19,20 @@
 /* Chroma syntax highlighting styles */
 @import "chroma";
 
-/* code highlighting */
+/*
+  code highlighting handled by golang chroma
+  default 'solarized-dark256' css saved in _chroma.css
+  minor customizations here
+ */
 pre.chroma {
-  line-height: 1.5;
   padding: 0.75rem 1rem;
   border-radius: .5em;
-  code {
-    font-family: $font-family-code;
-  }
+  color: $gray-300;
 }
 code.inline {
   background-color: #1c1c1c;
-  color: #8a8a8a;
-  padding: .2em .5em;
+  color: $gray-300;
+  padding: .1em .25em;
   border-radius: .25em;
   display: inline;
 }
