@@ -5,7 +5,7 @@ defmodule Home73kWeb.HomeView do
     [
       %{
         icon: "mdi-typewriter",
-        url: "https://w.73k.us/",
+        url: "https://73k.us/blog/",
         prof: false
       },
       %{icon: "mdi-rss", url: "https://w.73k.us/feed/", prof: false},
