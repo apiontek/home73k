@@ -93,9 +93,6 @@ defmodule Home73kWeb do
       # Import SVG Icon helper
       import Home73kWeb.IconHelpers
 
-      # Import Date formatter helper
-      import Home73kWeb.DateHelpers
-
       import Home73kWeb.ErrorHelpers
       import Home73kWeb.Gettext
       alias Home73kWeb.Router.Helpers, as: Routes

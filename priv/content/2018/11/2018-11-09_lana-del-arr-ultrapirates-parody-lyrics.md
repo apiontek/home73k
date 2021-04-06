@@ -21,9 +21,10 @@ Naturally I ended up writing some alternate lyrics. There's only two; I never go
 - ["Florida Cargo" (to the tune of "Florida Kilos")](#florida-cargo)
 - ["The Other Schooner" (to the tune of "The Other Woman")](#other-schooner)
 
-#### "Florida Cargo" (to the tune of "Florida Kilos")
 
 <a name="florida-cargo"></a>
+
+#### "Florida Cargo" (to the tune of "Florida Kilos")
 
 White shine, royal sailor, doubloons,   
 Don't you see them gleam,   
@@ -103,9 +104,9 @@ White shine, royal sailor,
 Gold teeth, royal sailor, yeah,   
 Drink the night away.
 
-#### "The Other Schooner" (to the tune of "The Other Woman")
-
 <a name="other-schooner"></a>
+
+#### "The Other Schooner" (to the tune of "The Other Woman")
 
 The other schooner has time to trim and furl her sails   
 The other schooner is perfect where her rival fails   

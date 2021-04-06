@@ -2,38 +2,74 @@
 
   <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 pb-2 mb-4 mt-3">
 
-    <%= for post <- @posts do %>
+    <%= if is_nil(@posts) do %>
 
-      <div class="post border-bottom border-gray pb-4 mb-3">
+        <div class="post border-bottom border-gray pb-4 mb-3">
 
-        <h2 class="post-title fs-2 fw-600 mb-2">
-          <%=  live_redirect "#{post.title}", to: Routes.post_path(@socket, :show, post) %>
-        </h2>
+          <h2 class="post-title fs-2 fw-600 mb-2">Nothing found.</h2>
 
-        <div class="post-date font-monospace text-gray-400 <%= if length(post.tags) == 0, do: "mb-3" %>">
-          <%= icon_div @socket, "mdi-calendar-clock", [class: "icon baseline me-2"] %><%= post.date |> format_date() %>
-          by <%= icon_div @socket, "mdi-account", [class: "icon baseline me-1"] %>Adam Piontek
         </div>
 
-        <%= if length(post.tags) > 0 do %>
-          <div class="post-tags fs-smaller mb-3">
-          <%= icon_div @socket, "mdi-tag-multiple", [class: "icon baseline"] %>
-          <%= for {tag, i} <- Enum.with_index(post.tags) do %>
-            #<%= tag %><%= i < (length(post.tags) - 1) && "," || "" %>
-          <% end %>
+    <% else %>
+
+      <%= for post <- @posts do %>
+
+        <div class="post border-bottom border-gray pb-4 mb-3">
+
+          <h2 class="post-title fs-2 fw-600 mb-2">
+            <%=  live_redirect "#{post.title}", to: Routes.blog_path(@socket, :show, post) %>
+          </h2>
+
+          <div class="post-date font-monospace text-gray-400 <%= if length(post.tags) == 0, do: "mb-3" %>">
+            <%= icon_div @socket, "mdi-calendar-clock", [class: "icon baseline me-2"] %><%= format_date(post.date) %>
+            by <%= icon_div @socket, "mdi-account", [class: "icon baseline me-1"] %>Adam Piontek
           </div>
+
+          <%= if length(post.tags) > 0 do %>
+            <div class="post-tags fs-smaller mb-3">
+            <%= icon_div @socket, "mdi-tag-multiple", [class: "icon baseline text-gray-400"] %>
+            <%= for {tag, i} <- Enum.with_index(post.tags) do %>
+              <span class="text-gray-400">#</span><%= live_redirect tag, to: Routes.blog_path(@socket, :tag, tag) %><%= i < (length(post.tags) - 1) && "," || "" %>
+            <% end %>
+            </div>
+          <% end %>
+
+          <div class="post-lede">
+            <%= raw post.lede %>
+          </div>
+
+          <%= if @live_action == :show do %>
+            <div class="post-body">
+              <%= raw post.body %>
+            </div>
+          <% else %>
+            <p>
+              <%=  live_redirect raw("Read more&hellip;"), to: Routes.blog_path(@socket, :show, post), class: "fs-6" %>
+            </p>
+          <% end %>
+
+        </div>
+
+      <% end %>
+
+    <% end %>
+
+    <%= if @live_action in [:index, :page] do %>
+      <nav class="d-flex justify-content-between" aria-label="Page navigation">
+        <%= if @page_prev do %>
+          <%= live_patch to: Routes.blog_path(@socket, :page, @page_prev) do %>
+            &larr; Older
+          <% end %>
+        <% else %>
+          <div class="d-block"></div>
         <% end %>
 
-        <div class="post-lede">
-          <%= raw post.lede %>
-        </div>
-
-        <p>
-        <%=  live_redirect raw("Read more&hellip;"), to: Routes.post_path(@socket, :show, post), class: "fs-6" %>
-        </p>
-
-      </div>
-
+        <%= if @page_next do %>
+          <%= live_patch to: @page_next == 1 && Routes.blog_path(@socket, :index) || Routes.blog_path(@socket, :page, @page_next) do %>
+            Newer &rarr;
+          <% end %>
+        <% end %>
+      </nav>
     <% end %>
 
   </div>

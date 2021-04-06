@@ -3,20 +3,28 @@ defmodule Home73k.Blog do
 
   Application.ensure_all_started(:earmark)
 
-  posts_paths = "#{Home73k.app_blog_content()}/**/*.md" |> Path.wildcard()
+  post_paths = "#{Home73k.app_blog_content()}/**/*.md" |> Path.wildcard()
+  post_paths_hash = :erlang.md5(post_paths)
 
   posts =
-    for post_path <- posts_paths do
+    for post_path <- post_paths do
       @external_resource Path.relative_to_cwd(post_path)
       Post.parse!(post_path)
     end
 
+  def __mix_recompile__?() do
+    Path.wildcard("#{Home73k.app_blog_content()}/**/*.md") |> :erlang.md5() != unquote(post_paths_hash)
+  end
+
   @posts Enum.sort_by(posts, & &1.date, {:desc, Date})
+  @post_count length(@posts)
 
   @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
 
   def list_posts, do: @posts
   def list_tags, do: @tags
+
+  def post_count, do: @post_count
 
   defmodule NotFoundError do
     defexception [:message, plug_status: 404]
@@ -29,10 +37,10 @@ defmodule Home73k.Blog do
     end
   end
 
-  # def get_posts_by_tag!(tag) do
-  #   case Enum.filter(list_posts(), &(tag in &1.tags)) do
-  #     [] -> raise NotFoundError, "posts with tag=#{tag} not found"
-  #     posts -> posts
-  #   end
-  # end
+  def get_posts_by_tag!(tag) do
+    case Enum.filter(list_posts(), &(tag in &1.tags)) do
+      [] -> raise NotFoundError, "posts with tag=#{tag} not found"
+      posts -> posts
+    end
+  end
 end
