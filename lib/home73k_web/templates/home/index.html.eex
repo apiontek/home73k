@@ -21,7 +21,7 @@
 
       <div id="social-icons" class="mt-1">
         <%= for s <- socials(@conn) do %>
-          <%= link to: s.url, target: "_blank", class: "fs-3 link-light text-decoration-none" do %>
+          <%= link to: s.url, target: s.target, class: "fs-3 link-light text-decoration-none" do %>
             <%= icon_div @conn, s.icon, [class: "icon baseline"] %>
           <% end %>
         <% end %>

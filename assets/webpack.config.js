@@ -94,7 +94,7 @@ module.exports = (env, options) => {
                 "./js/**/*.js",
               ]),
               safelist: {
-                greedy: [/phx/, /topbar/, /chroma/],
+                greedy: [/phx/, /topbar/, /chroma/, /inline/],
               },
             }),
           ]
