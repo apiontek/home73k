@@ -10,6 +10,10 @@ defmodule Home73kWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :xml_rss do
+    plug :accepts, ["xml", "rss", "atom"]
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -28,6 +32,13 @@ defmodule Home73kWeb.Router do
     live "/blog/page/:page", BlogLive, :page
     live "/blog/tag/:tag", BlogLive, :tag
     live "/blog/:id", BlogLive, :show
+  end
+
+  scope "/feed", Home73kWeb do
+    pipe_through :xml_rss
+
+    # Feeds
+    get "/", FeedController, :rss
   end
 
   # Other scopes may use custom stacks.

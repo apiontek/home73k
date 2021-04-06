@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>73k Blog - Adam Piontek</title>
+    <link><%= Routes.blog_url(@conn, :index) %></link>
+    <atom:link href="<%= Routes.feed_url(@conn, :rss) %>" rel="self" type="application/rss+xml" />
+    <description>Blog by Adam Piontek. Desktop Systems Engineer. Human. Casual anthropologist, cautious DIYer, cuckoo leftist, cat papa.</description>
+    <language>en</language>
+    <copyright>Copyright <%= DateTime.utc_now.year %> Adam Piontek</copyright>
+    <lastBuildDate><%= @last_build_date |> to_rfc822 %></lastBuildDate>
+    <category>Personal/Political/Society/Technology/IT/Internet/Web development</category>
+    <ttl>60</ttl><%= for post <- @posts do %>
+      <item>
+        <title><%= post.title %></title>
+        <link><%= Routes.blog_url(@conn, :show, post) %></link>
+        <guid><%= Routes.blog_url(@conn, :show, post) %></guid>
+        <description><![CDATA[ <%= post.lede %> ]]></description>
+        <category><%= post.tags |> List.first() %></category>
+        <pubDate><%= post.date |> to_rfc822 %></pubDate>
+        <source url="<%= Routes.feed_url(@conn, :rss) %>">73k Blog - Adam Piontek</source>
+      </item><% end %>
+  </channel>
+</rss>
