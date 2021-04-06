@@ -35,7 +35,7 @@ end
 
 Following that change, new markdown files are recognized and included as expected.
 
-And, FWIW, here's the meat of my modified highlighter using chroma (NOTE: the CSS styles were exported separately (like so: `~/go/bin/chroma -s base16-snazzy --html-styles > _chroma.css`) and are included in my app.scss file. And since I use purgecss, I had to add the chroma class to the safelist for the webpack plugin: `safelist: {greedy: [/phx/, /topbar/, /inline/, /chroma/]}` .)
+And, FWIW, here's the meat of my modified highlighter using chroma (NOTE: the CSS styles can be exported separately (like so: `~/go/bin/chroma -s base16-snazzy --html-styles > _chroma.css`), or you can use styles from Pygments, including custom styles like [nord_pygments](https://github.com/sbrisard/nord_pygments)). Once included in your app.scss, if you use purgecss like me, you'll need to add the chroma class (or whatever class you're using) to the safelist for the webpack plugin: `safelist: {greedy: [/phx/, /topbar/, /inline/, /chroma/]}` .)
 
 ```elixir
 def highlight_code_blocks(html) do
@@ -52,7 +52,7 @@ defp highlight_code_block(_full_block, lang, code) do
   File.write!(tmp_file, unescaped_code)
 
   # use chroma to highlight the code via temp file
-  bin_args = ["-l", lang, "-f", "html", "-s", @style, "--html-only", "--html-prevent-surrounding-pre", tmp_file]
+  bin_args = ["-l", lang, "-f", "html", "--html-only", "--html-prevent-surrounding-pre", tmp_file]
   # The '@chroma_bin' module attribute retrieves the configured
   # location of the chroma cli binary from the application config.
   {highlighted, _} = System.cmd(@chroma_bin, bin_args)

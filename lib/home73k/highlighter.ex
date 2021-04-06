@@ -6,7 +6,6 @@ defmodule Home73k.Highlighter do
   alias Home73k.Temp
 
   @chroma_bin Home73k.app_chroma_bin() |> Path.expand()
-  @style "solarized-dark256"
 
   @doc """
   Highlights all code block in an already generated HTML document.
@@ -25,7 +24,7 @@ defmodule Home73k.Highlighter do
     File.write!(tmp_file, unescaped_code)
 
     # use chroma to highlight the code via temp file
-    bin_args = ["-l", lang, "-f", "html", "-s", @style, "--html-only", "--html-prevent-surrounding-pre", tmp_file]
+    bin_args = ["-l", lang, "-f", "html", "--html-only", "--html-prevent-surrounding-pre", tmp_file]
     {highlighted, _} = System.cmd(@chroma_bin, bin_args)
 
     # return properly wrapped highlighted code

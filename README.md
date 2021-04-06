@@ -10,20 +10,9 @@ Posts are markdown files stored under `priv/content` and parsed by [Earmark](htt
 
 For the challenge of it, and to keep user's browsers from having to run javascript just to highlight some code, I chose to do server-side syntax highlighting.
 
-Due to the lexer limitations of elixir-native solutions, the highlighter uses [Pygments](https://pygments.org/) by calling [pygmentize](https://pygments.org/docs/cmdline/) via [System.cmd](https://hexdocs.pm/elixir/System.html#cmd/3)
+Due to the lexer limitations of elixir-native solutions, the highlighter uses [Chroma](https://github.com/alecthomas/chroma) by calling its command-linie-interface via [System.cmd](https://hexdocs.pm/elixir/System.html#cmd/3)
 
-However, this requires installing python3 & Pygments. Best way to do this is with a venv (virtual python environment), so you'll also want `python3-venv` installed on a debian system, for example.
-
-By default, Home73k is configured to look for pygmentize in a venv at `priv/pygments/bin/pygmentize` -- here's a quick howto for how to set that up:
-
-```shell
-cd priv
-python3 -m venv pygments
-source pygments/bin/activate
-pip3 install Pygments
-```
-
-The location of bin/pygmentize can be configured in `config.exs` under `config :home73k, :app_global_vars, pygmentize_bin: "path/to/bin/pygmentize"` 
+However, this requires installing [golang](https://golang.org/doc/install) as well as chroma. You can add go to your path, but once chroma is installed, just make sure Home73k's `config.exs` is configured to point directly to the chroma binary under `config :home73k, :app_global_vars, chroma_bin: "path/to/bin/chroma"` -- `"priv/go/bin/chroma"` by default.
 
 ## Deploying
 
