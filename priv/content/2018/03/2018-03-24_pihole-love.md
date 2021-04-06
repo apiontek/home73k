@@ -35,7 +35,7 @@ I also whitelisted several relevant domains from both the bottom of the Big Bloc
 
 We found my partner couldn't use a website related to her profession. It would just get stuck loading and it wasn't clear why. With Chrome (can do this in Firefox, too) I was able to use F12 to open the DevTools, click Network, reload the page, and see in red what was failing to load.
 
-In this case, the Pi-hole was blocking "cdns.gigya.com," a content delivery service hosting a javascript the page wanted to use. Off to the Pi-hole web interface (or cli with `pihole -w`) to quickly whitelist, and the site worked again.
+In this case, the Pi-hole was blocking "cdns.gigya.com," a content delivery service hosting a javascript the page wanted to use. Off to the Pi-hole web interface (or cli with ``pihole -w``{:.lang-shell}) to quickly whitelist, and the site worked again.
 
 The same for "prod.imgur.map.fastlylb.net," apparently needed for imgur to work.
 

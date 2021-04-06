@@ -60,7 +60,7 @@ defmodule Home73kWeb.BlogLive do
   defp init_per_live_action(:show, socket, %{"id" => id}) do
     post = Blog.get_post_by_id!(id)
     socket
-    |> assign(:page_title, "Blog \\ post.title")
+    |> assign(:page_title, "Blog \\ #{post.title}")
     |> assign(:posts, [post])
     |> assign(:page_count, nil)
     |> assign_prev_next(0)

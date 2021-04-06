@@ -63,7 +63,7 @@ defmodule Home73k.Blog.Post do
   # """ parse_body/1
   # Convert body markdown to html, and highlight code fence blocks
   defp parse_body({fm, md}) do
-    html = Earmark.as_html!(md) |> Highlighter.highlight_code_blocks()
+    html = Earmark.as_html!(md) |> Highlighter.highlight_all()
     Map.put(fm, :body, html)
   end
 
