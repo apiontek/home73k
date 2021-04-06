@@ -11,10 +11,10 @@
     <category>Personal/Political/Society/Technology/IT/Internet/Web development</category>
     <ttl>60</ttl><%= for post <- @posts do %>
       <item>
-        <title><%= post.title %></title>
+        <title><%= post.title |> String.replace(" & ", " &amp; ") %></title>
         <link><%= Routes.blog_url(@conn, :show, post) %></link>
         <guid><%= Routes.blog_url(@conn, :show, post) %></guid>
-        <description><![CDATA[ <%= post.lede %> ]]></description>
+        <description><![CDATA[ <%= post.lede |> String.replace("href=\"/", "href=\"#{Routes.home_url(@conn, :index)}") %> ]]></description>
         <category><%= post.tags |> List.first() %></category>
         <pubDate><%= post.date |> to_rfc822 %></pubDate>
         <source url="<%= Routes.feed_url(@conn, :rss) %>">73k Blog - Adam Piontek</source>
