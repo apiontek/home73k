@@ -24,3 +24,75 @@ pip3 install Pygments
 ```
 
 The location of bin/pygmentize can be configured in `config.exs` under `config :home73k, :app_global_vars, pygmentize_bin: "path/to/bin/pygmentize"` 
+
+## Deploying
+
+### New versions
+
+When improvements are made, we can update the deployed version like so:
+
+```shell
+cd /opt/home73k
+git pull
+mix deps.get --only prod
+MIX_ENV=prod mix compile
+# update Pygments in venv
+priv/pygments/bin/pip3 install -U Pygments
+# rebuild static assets:
+npm run deploy --prefix ./assets
+MIX_ENV=prod mix phx.digest
+MIX_ENV=prod mix release --overwrite
+# test starting it:
+MIX_ENV=prod _build/prod/rel/home73k/bin/home73k start
+```
+
+### systemd unit:
+
+```ini
+[Unit]
+Description=Home73k service
+After=local-fs.target network.target
+
+[Service]
+Type=simple
+User=runuser
+Group=runuser
+WorkingDirectory=/opt/home73k/_build/prod/rel/home73k
+ExecStart=/opt/home73k/_build/prod/rel/home73k/bin/home73k start
+ExecStop=/opt/home73k/_build/prod/rel/home73k/bin/home73k stop
+#EnvironmentFile=/etc/default/myApp.env
+Environment=LANG=en_US.utf8
+Environment=MIX_ENV=prod
+#Environment=PORT=4000
+LimitNOFILE=65535
+UMask=0027
+SyslogIdentifier=home73k
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### nginx config:
+
+```conf
+    upstream phoenixhome {
+      server 127.0.0.1:4721 max_fails=5 fail_timeout=60s;
+    }
+    server {
+      location / {
+        allow all;
+        # Proxy Headers
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Cluster-Client-Ip $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_redirect off;
+        # WebSockets
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_pass http://phoenixhome;
+      }
+    }
+```
