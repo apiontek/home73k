@@ -1,4 +1,8 @@
 defmodule Home73kWeb.LiveHelpers do
+  @moduledoc """
+  Functions to make working with Phoenix LiveView a little easier.
+  """
+
   @doc """
   Performs the {:noreply, socket} for a given socket.
   This helps make the noreply pipeable

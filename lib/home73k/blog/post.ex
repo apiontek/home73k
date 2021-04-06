@@ -1,4 +1,7 @@
 defmodule Home73k.Blog.Post do
+  @moduledoc """
+  Blog Post struct definition and content parsing functions.
+  """
   alias Home73k.Highlighter
 
   @enforce_keys [:title, :id, :date, :author, :tags, :lede, :body, :corpus]
@@ -76,7 +79,7 @@ defmodule Home73k.Blog.Post do
     # grab text only, rejecting HTML
     # downcase & scrub line breaks, slashes
     corpus =
-      (tags ++ [title, (lede && lede) || " ", body])
+      (tags ++ [title, lede || " ", body])
       |> Enum.join(" ")
       |> Floki.parse_fragment!()
       |> Floki.text()

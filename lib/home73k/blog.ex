@@ -1,4 +1,7 @@
 defmodule Home73k.Blog do
+  @moduledoc """
+  Blog content loading & data access functions.
+  """
   import Home73k, only: [app_blog_content: 0]
   alias Home73k.Blog.Post
 

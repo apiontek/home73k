@@ -1,4 +1,7 @@
 defmodule Home73kWeb.BlogLive do
+  @moduledoc """
+  LiveView engine for Blog navigation
+  """
   use Home73kWeb, :live_view
 
   alias Home73k.Blog
