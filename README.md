@@ -36,9 +36,10 @@ cd /opt/home73k
 git pull
 mix deps.get --only prod
 MIX_ENV=prod mix compile
-# update Pygments in venv
-priv/pygments/bin/pip3 install -U Pygments
+# update chroma in priv gopath
+GOPATH=$(pwd)/priv/go go get -u github.com/alecthomas/chroma/cmd/chroma
 # rebuild static assets:
+rm -rf priv/static/*
 npm run deploy --prefix ./assets
 MIX_ENV=prod mix phx.digest
 MIX_ENV=prod mix release --overwrite
