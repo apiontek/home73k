@@ -4,7 +4,7 @@
   id: "blog-incorporated-2021",
   date: ~N[2021-04-05 23:49:00],
   author: "Adam Piontek",
-  tags: ["blog", "tech", "coding", "web", "fun", "markdown"]
+  tags: ["blog", "tech", "coding", "web", "fun", "markdown", "elixir"]
 }
 ---
 
@@ -16,7 +16,9 @@ Luckily, there are [good](http://www.sebastianseilund.com/static-markdown-blog-p
 
 I set to incorporating my blog posts and previous static webpack-based design into a Phoenix site. Had to do a few additions and customizations to get things working just right.
 
-For one, as much as I love Elxiir, the only server-side syntax-highlighting package out there doesn't support enough languages for my needs. I didn't like the idea of using client-side javascript, so I decided to leverage [Pygments' `pygmentize` cli](https://pygments.org/docs/cmdline/). Hooking elixir's System.cmd/3 in with a trimmed & modified version of [the ExDoc syntax highlighter code](https://github.com/elixir-lang/ex_doc/blob/d5cde30f55c7e0cde486ec3878067aee82ccc924/lib/ex_doc/highlighter.ex), after parsing the markdown to html, I'm able to isolate all fenced code in a post, write each code fragment to a temp file, pygmentize it, and replace the post's code with the pygmentized version.
+For one, as much as I love Elxiir, the only server-side syntax-highlighting package out there doesn't support enough languages for my needs. I didn't like the idea of using client-side javascript, so I decided to leverage [Chroma's cli](https://github.com/alecthomas/chroma#command-line-interface). Hooking elixir's System.cmd/3 in with a trimmed & modified version of [the ExDoc syntax highlighter code](https://github.com/elixir-lang/ex_doc/blob/d5cde30f55c7e0cde486ec3878067aee82ccc924/lib/ex_doc/highlighter.ex), after parsing the markdown to html, I'm able to isolate all fenced code in a post, write each code fragment to a temp file, apply highlight classes via chroma, and replace the code in the post.
+
+*(As an aside, I at first tried using [Pygments' `pygmentize` cli](https://pygments.org/docs/cmdline/), which worked fine, but I realized it didn't seem to support vue templates, and I do some work with vue. At some point it might be fun to try to figure out how to implement the lexers I need in the elixir native project [makeup](https://github.com/elixir-makeup/makeup) but that's a big task to tackle some other day!)*
 
 I also found code hot-reloading wasn't working great if I added or removed a file, even if I canceled all elixir processes and started it up again. I had to get this fixed because the plan was to deploy new content and other changes via git repository post-receive hook, and while I can script the recompilation, and probably add in a `--force` flag or something, I wanted it cleaner. Plus I just wanted the convenience of writing posts in dev mode with a preview.
 
@@ -33,7 +35,7 @@ end
 
 Following that change, new markdown files are recognized and included as expected.
 
-And, FWIW, here's the meat of my modified highlighter using pygments (NOTE: the CSS styles were exported separately (like so: `pygmentize -S material -f html -a pre.pygments > _pygments.css`) and are included in my app.scss file. And since I use purgecss, I had to safelist the pygments class.)
+And, FWIW, here's the meat of my modified highlighter using chroma (NOTE: the CSS styles were exported separately (like so: `~/go/bin/chroma -s base16-snazzy --html-styles > _chroma.css`) and are included in my app.scss file. And since I use purgecss, I had to add the chroma class to the safelist for the webpack plugin: `safelist: {greedy: [/phx/, /topbar/, /inline/, /chroma/]}` .)
 
 ```elixir
 def highlight_code_blocks(html) do
@@ -49,16 +51,13 @@ defp highlight_code_block(_full_block, lang, code) do
   tmp_file = Temp.file()
   File.write!(tmp_file, unescaped_code)
 
-  # pygmentize the code via temp file
-  pyg_args = ["-l", lang, "-f", "html", "-O", "cssclass=pygments", tmp_file]
-  {highlighted, _} = System.cmd(@pygments_cmd, pyg_args)
+  # use chroma to highlight the code via temp file
+  bin_args = ["-l", lang, "-f", "html", "-s", @style, "--html-only", "--html-prevent-surrounding-pre", tmp_file]
+  # The '@chroma_bin' module attribute retrieves the configured
+  # location of the chroma cli binary from the application config.
+  {highlighted, _} = System.cmd(@chroma_bin, bin_args)
 
-  # correct pygment wrapping markup
-  highlighted
-  |> String.replace("<span></span>", "")
-  |> String.replace(
-    "<div class=\"pygments\"><pre>",
-    "<pre class=\"pygments\"><code class=\"language-#{lang}\">")
-  |> String.replace("</pre></div>", "</code></pre>")
+  # return properly wrapped highlighted code
+  ~s(<pre class="chroma"><code class="language-#{lang}">#{highlighted}</code></pre>)
 end
 ```
