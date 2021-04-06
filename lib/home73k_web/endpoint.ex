@@ -24,7 +24,7 @@ defmodule Home73kWeb.Endpoint do
     at: "/",
     from: :home73k,
     gzip: (Mix.env() not in [:dev, :test]),
-    only: File.ls!("priv/static")
+    only: "priv/static" |> Path.expand() |> File.ls!()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
