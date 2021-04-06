@@ -13,7 +13,8 @@ defmodule Home73k.Blog do
     end
 
   def __mix_recompile__?() do
-    Path.wildcard("#{Home73k.app_blog_content()}/**/*.md") |> :erlang.md5() != unquote(post_paths_hash)
+    Path.wildcard("#{Home73k.app_blog_content()}/**/*.md")
+    |> :erlang.md5() != unquote(post_paths_hash)
   end
 
   @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
