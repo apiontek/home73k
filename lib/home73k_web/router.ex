@@ -24,8 +24,6 @@ defmodule Home73kWeb.Router do
     get "/about", HomeController, :about
     get "/resume", HomeController, :resume
     get "/folio", HomeController, :folio
-    get "/err", HomeController, :err
-    get "/err/:code", HomeController, :err
 
     # Blog
     live "/blog", BlogLive, :index
@@ -35,6 +33,10 @@ defmodule Home73kWeb.Router do
 
     # Feeds
     get "/feed", FeedController, :rss
+
+    # Error fun/testing
+    get "/err", ErrController, :err
+    get "/err/:code", ErrController, :err
   end
 
   # Other scopes may use custom stacks.
