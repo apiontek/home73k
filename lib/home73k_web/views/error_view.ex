@@ -13,4 +13,7 @@ defmodule Home73kWeb.ErrorView do
   def template_not_found(template, _assigns) do
     Phoenix.Controller.status_message_from_template(template)
   end
+
+  def render("4" <> _rest, assigns), do: render("e40x.html", assigns)
+  def render("5" <> _rest, assigns), do: render("e50x.html", assigns)
 end

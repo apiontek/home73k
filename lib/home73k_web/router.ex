@@ -28,6 +28,8 @@ defmodule Home73kWeb.Router do
     get "/about", HomeController, :about
     get "/resume", HomeController, :resume
     get "/folio", HomeController, :folio
+    get "/err", HomeController, :err
+    get "/err/:code", HomeController, :err
 
     # Blog
     live "/blog", BlogLive, :index

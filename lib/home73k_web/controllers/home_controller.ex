@@ -16,4 +16,29 @@ defmodule Home73kWeb.HomeController do
   def folio(conn, _params) do
     render(conn, "folio.html", page_title: "Folio")
   end
+
+  @valid_codes [400..418, 421..426, 428..429, 500..508]
+    |> Enum.map(&Enum.to_list/1)
+    |> Enum.concat()
+    |> Enum.concat([431, 451, 510, 511])
+
+  def err(conn, params) do
+    code = Map.get(params, "code", "404") |> err_code_as_int()
+    code = code in @valid_codes && code || 404
+
+    conn
+    |> put_status(code)
+    |> put_layout(false)
+    |> put_root_layout(false)
+    |> put_view(Home73kWeb.ErrorView)
+    |> render("#{code}.html")
+  end
+
+  defp err_code_as_int(code) do
+    try do
+      String.to_integer(code)
+    rescue
+      _ -> 404
+    end
+  end
 end

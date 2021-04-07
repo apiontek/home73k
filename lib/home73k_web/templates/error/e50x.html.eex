@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= @conn.status %> <%= Plug.Conn.Status.reason_phrase(@conn.status) %> \ 73k</title>
+    <meta name="description" content="HTTP error <%= @conn.status %>, <%= Plug.Conn.Status.reason_phrase(@conn.status) %>, from 73k.us">
+    <meta name="author" content="Adam Piontek"/>
+    <link rel="me" href="mailto:adam@73k.us"/>
+    <link rel="me" href="sms:+16462341697"/>
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= Routes.static_path(@conn, "/apple-touch-icon.png") %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= Routes.static_path(@conn, "/favicon-32x32.png") %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= Routes.static_path(@conn, "/favicon-16x16.png") %>">
+    <link rel="manifest" href="<%= Routes.static_path(@conn, "/site.webmanifest") %>">
+    <link rel="mask-icon" href="<%= Routes.static_path(@conn, "/safari-pinned-tab.svg") %>" color="#78868a">
+    <meta name="apple-mobile-web-app-title" content="73k">
+    <meta name="application-name" content="73k">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="favicon.ico">
+    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+    <style type="text/css">
+      body {
+        background: url(<%= Routes.static_path(@conn, "/images/err_view/50x_rainbow.jpg") %>);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <main class="container-fluid h-100 d-flex flex-column justify-content-center align-items-center text-light">
+
+      <img src="<%= Routes.static_path(@conn, "/images/err_view/50x_unicorn-300.png") %>" class="img-fluid mb-3" alt="UNICORN">
+
+      <h2 class="fs-2 mb-0">K̷z̴z̶t̸.̶ ̷E̷r̷r̶o̸r̸!̶</h2>
+      <p class="lead"><%= @conn.status %> &bull; <%= Plug.Conn.Status.reason_phrase(@conn.status) %></p>
+
+      <%= link to: Routes.home_path(@conn, :index), class: "border-0 text-light text-center mb-3", title: "Home" do %>
+        <p class="m-0 p-0">Click home to get back to safety!</p>
+        <%= icon_div @conn, "mdi-home", [class: "icon"], [ style: "width: 100px; height: 100px;"] %>
+      <% end %>
+
+      <p style="font-size: 10px;">
+        (Unicorn image <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noreferrer" target="_blank">Creative Commons 4.0 BY-NC</a>
+        via <a href="http://pngimg.com/download/24891" rel="noreferrer" target="_blank">pngimg.com</a>)
+      </p>
+
+    </main>
+
+  </body>
+</html>
