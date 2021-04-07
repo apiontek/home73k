@@ -41,7 +41,15 @@
       <img src="<%= Routes.static_path(@conn, "/images/err_view/50x_unicorn-300.png") %>" class="img-fluid mb-3" alt="UNICORN">
 
       <h2 class="fs-2 mb-0">K̷z̴z̶t̸.̶ ̷E̷r̷r̶o̸r̸!̶</h2>
-      <p class="lead"><%= @conn.status %> &bull; <%= Plug.Conn.Status.reason_phrase(@conn.status) %></p>
+      <p class="lead mb-0"><%= @conn.status %> &bull; <%= Plug.Conn.Status.reason_phrase(@conn.status) %></p>
+      <div class="mb-3">
+        <span style="font-size: 10px;">[
+          <%= link to: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/#{@conn.status}", rel: "noreferrer", target: "_blank", class: "mb-4", style: "font-size: 10px;" do %>
+            <span>what's it mean? &middot; MDN</span>
+            <%= icon_div @conn, "mdi-open-in-new", [class: "icon"], [style: "height: 10px; width: 10px;"] %>
+          <% end %>
+        ]</span>
+      </div>
 
       <%= link to: Routes.home_path(@conn, :index), class: "border-0 text-light text-center mb-3", title: "Home" do %>
         <p class="m-0 p-0">Click home to get back to safety!</p>
