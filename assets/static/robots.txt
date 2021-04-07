@@ -4,9 +4,44 @@
 # User-agent: *
 # Disallow: /
 
+User-agent: *
+Crawl-delay: 5
 Disallow: /pcasts/
-Disallow: /acasts/
-Disallow: /swm/
-Disallow: /acasts/swm/
-Disallow: /mjrpt/
-Disallow: /pcasts/mjrpt/
+Disallow: /flux/
+Disallow: /znc/
+Disallow: /lounge/
+Disallow: /books/
+Disallow: /fs-adam/
+Disallow: /wol/
+Disallow: /asrv/
+Disallow: /komga/
+
+User-agent: PetalBot
+Disallow: /git/
+
+User-agent: MJ12bot
+Disallow: /git/
+
+User-agent: SemrushBot
+Disallow: /git/
+
+User-agent: ZoominfoBot
+Disallow: /git/
+
+User-agent: DotBot
+Disallow: /git/
+
+User-agent: MauiBot
+Disallow: /git/
+
+User-agent: AhrefsBot
+Disallow: /git/
+
+User-agent: Discordbot
+Disallow: /git/
+
+User-agent: BLEXBot
+Disallow: /git/
+
+User-agent: YandexBot
+Disallow: /git/
