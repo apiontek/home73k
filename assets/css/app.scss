@@ -45,9 +45,9 @@ body {
   height: 100%;
 }
 a {
-  color: $gray-100;
-  border-bottom: $secondary 2px solid;
-  text-decoration: none;
+  color: white;
+  // border-bottom: $secondary 2px solid;
+  text-decoration: underline;
   &.navbar-brand,
   &.nav-link {
     border-bottom: none;
@@ -61,6 +61,7 @@ a {
   &:hover {
     color: $primary;
     text-decoration: none;
+    border-bottom: $secondary 2px solid;
   }
 }
 .border-gray-900 {
