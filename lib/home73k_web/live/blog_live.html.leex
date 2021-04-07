@@ -26,7 +26,7 @@
           </div>
 
           <%= if length(post.tags) > 0 do %>
-            <div class="post-tags fs-smaller mb-3">
+            <div class="post-tags fs-smaller mb-4">
             <%= icon_div @socket, "mdi-tag-multiple", [class: "icon baseline text-gray-300"] %>
             <%= for {tag, i} <- Enum.with_index(post.tags) do %>
               <span class="text-gray-300">#</span><%= live_redirect tag, to: Routes.blog_path(@socket, :tag, tag) %><%= i < (length(post.tags) - 1) && "," || "" %>

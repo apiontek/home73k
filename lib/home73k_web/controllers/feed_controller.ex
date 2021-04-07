@@ -1,5 +1,7 @@
 defmodule Home73kWeb.FeedController do
   use Home73kWeb, :controller
+  plug :put_layout, false
+  plug :put_root_layout, false
 
   alias Home73k.Blog
 
@@ -9,7 +11,6 @@ defmodule Home73kWeb.FeedController do
 
     conn
     |> put_resp_content_type("application/rss+xml")
-    |> put_layout(:false)
     |> render("rss.xml", posts: posts, last_build_date: last_build_date)
   end
 end

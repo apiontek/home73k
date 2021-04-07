@@ -3,17 +3,13 @@ defmodule Home73kWeb.Router do
   alias Home73kWeb.CSPHeader
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ~w(html xml)
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {Home73kWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug CSPHeader
-  end
-
-  pipeline :xml_rss do
-    plug :accepts, ["xml", "rss", "atom"]
   end
 
   pipeline :api do
@@ -36,13 +32,9 @@ defmodule Home73kWeb.Router do
     live "/blog/page/:page", BlogLive, :page
     live "/blog/tag/:tag", BlogLive, :tag
     live "/blog/:id", BlogLive, :show
-  end
-
-  scope "/feed", Home73kWeb do
-    pipe_through :xml_rss
 
     # Feeds
-    get "/", FeedController, :rss
+    get "/feed", FeedController, :rss
   end
 
   # Other scopes may use custom stacks.
