@@ -7,7 +7,7 @@
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "", prefix: assigns[:page_title] && "73k \\ " || "73k" %>
     <meta name="author" content="Adam Piontek"/>
-    <link rel="alternate" type="application/rss+xml" title="Blog Title" href="<%= Routes.feed_path(@conn, :rss) %>" />
+    <link rel="alternate" type="application/rss+xml" title="73k Blog - Adam Piontek" href="<%= Routes.feed_path(@conn, :rss) %>" />
     <link rel="prefetch" href="<%= Routes.static_path(@conn, "/images/icons.svg") %>" as="image" type="image/svg+xml">
     <link rel="me" href="mailto:adam@73k.us"/>
     <link rel="me" href="sms:+16462341697"/>
