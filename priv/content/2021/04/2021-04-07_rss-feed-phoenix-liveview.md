@@ -24,6 +24,7 @@ But luckily, there's a new [put_root_layout/2](https://hexdocs.pm/phoenix/Phoeni
 defmodule YourAppWeb.RSSController do
   use YourAppWeb, :controller
   plug :put_layout, false
+  plug :put_root_layout, false
 
   ...
 end
