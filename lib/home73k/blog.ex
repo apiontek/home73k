@@ -24,10 +24,22 @@ defmodule Home73k.Blog do
   @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
   @post_count length(@posts)
 
-  @tags posts |> Stream.flat_map(& &1.tags) |> Stream.uniq() |> Enum.sort()
 
-  def list_posts, do: @posts
-  def list_tags, do: @tags
+
+  defp list_all_posts, do: @posts
+  defp list_posts_reject_future, do: list_all_posts() |> Enum.reject(&(&1.date <= NaiveDateTime.utc_now()))
+
+  # Enum reject posts with future date, allowing scheduled posts
+  def list_posts, do: list_posts_reject_future()
+
+  # List tags, but not for future p
+  def list_tags do
+    list_all_posts()
+    |> Stream.reject(&(&1.date <= NaiveDateTime.utc_now()))
+    |> Stream.flat_map(& &1.tags)
+    |> Stream.uniq()
+    |> Enum.sort()
+  end
 
   def post_count, do: @post_count
 
