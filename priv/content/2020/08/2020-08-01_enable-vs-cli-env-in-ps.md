@@ -3,7 +3,7 @@
   title: "Enable Visual Studio CLI environment in PowerShell",
   date: ~N[2020-08-01 15:00:00],
   author: "Adam Piontek",
-  tags: ["coding", "tech", "elixir", "windows", "powershell", "scripting"]
+  tags: ~w(tech coding elixir windows powershell scripting cli notes)
 }
 ---
 

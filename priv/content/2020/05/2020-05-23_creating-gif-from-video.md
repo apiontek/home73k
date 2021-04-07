@@ -4,7 +4,7 @@
   id: "creating-gif-from-video",
   date: ~N[2020-05-23 15:00:00],
   author: "Adam Piontek",
-  tags: ["cli", "ffmpeg ", "gif", "multimedia", "video", "notes"],
+  tags: ~w(tech cli ffmpeg gif animated multimedia video notes)
 }
 ---
 

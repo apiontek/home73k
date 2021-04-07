@@ -3,7 +3,7 @@
   title: "Roast potatoes, chicken, veg (asparagus, cauliflower, etc)",
   date: ~N[2020-12-29 15:05:00],
   author: "Adam Piontek",
-  tags: ["food", "recipe", "mealprep", "pandemiceats", "plaguecooking"]
+  tags: ~w(food recipe cooking mealprep pandemiceats plaguecooking)
 }
 ---
 

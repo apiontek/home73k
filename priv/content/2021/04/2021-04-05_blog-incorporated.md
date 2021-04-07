@@ -4,7 +4,7 @@
   id: "blog-incorporated-2021",
   date: ~N[2021-04-05 23:49:00],
   author: "Adam Piontek",
-  tags: ["blog", "tech", "coding", "web", "fun", "markdown", "elixir"]
+  tags: ~w(tech elixir phoenix coding web development syntaxhighlighting markdown blog fun)
 }
 ---
 

@@ -4,7 +4,7 @@
   id: "lana-del-arr-ultrapirates-parody-lyrics",
   date: ~N[2018-11-09 15:00:00],
   author: "Adam Piontek",
-  tags: ["song", "lyrics", "lanadelrey", "music", "parody", "pirates"],
+  tags: ~w(song lyrics music parody lanadelrey pirates)
 }
 ---
 

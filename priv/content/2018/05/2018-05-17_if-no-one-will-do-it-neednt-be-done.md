@@ -4,7 +4,7 @@
   id: "if-noone-will-do-it-neednt-be-done-bs-jobs-toddler-bosses",
   date: ~N[2018-05-17 15:00:00],
   author: "Adam Piontek",
-  tags: ["economics", "society", "work"],
+  tags: ~w(society politics work economics)
 }
 ---
 

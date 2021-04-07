@@ -4,7 +4,7 @@
   id: "pihole-love",
   date: ~N[2018-03-24 15:00:00],
   author: "Adam Piontek",
-  tags: ["home", "privacy", "tech", "raspberrypi"],
+  tags: ~w(tech privacy raspberrypi deprecated home)
 }
 ---
 

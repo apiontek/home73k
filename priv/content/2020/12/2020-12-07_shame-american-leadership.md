@@ -4,7 +4,7 @@
   id: "shame-on-american-leadership",
   date: ~N[2020-12-07 15:00:00],
   author: "Adam Piontek",
-  tags: ["politics", "society", "policy", "pandemic"]
+  tags: ~w(politics society policy pandemic ptsd healthcare)
 }
 ---
 

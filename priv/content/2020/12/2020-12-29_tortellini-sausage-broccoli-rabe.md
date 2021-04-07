@@ -4,7 +4,7 @@
   id: "tortellini-sausage-broccoli-rabe",
   date: ~N[2020-12-29 15:15:00],
   author: "Adam Piontek",
-  tags: ["food", "recipe", "mealprep", "pandemiceats", "plaguecooking"]
+  tags: ~w(food recipe cooking mealprep pandemiceats plaguecooking)
 }
 ---
 

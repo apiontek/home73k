@@ -3,7 +3,7 @@
   title: "New Front Page “Internet Home”",
   date: ~N[2020-12-08 15:00:00],
   author: "Adam Piontek",
-  tags: ["tech", "coding", "web", "fun"]
+  tags: ~w(tech coding web development fun deprecated)
 }
 ---
 
