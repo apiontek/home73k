@@ -22,26 +22,25 @@ defmodule Home73k.Blog do
   end
 
   @posts Enum.sort_by(posts, & &1.date, {:desc, NaiveDateTime})
-  @post_count length(@posts)
 
-
-
+  # Private function to list all posts
   defp list_all_posts, do: @posts
-  defp list_posts_reject_future, do: list_all_posts() |> Enum.reject(&(&1.date <= NaiveDateTime.utc_now()))
 
-  # Enum reject posts with future date, allowing scheduled posts
-  def list_posts, do: list_posts_reject_future()
 
-  # List tags, but not for future p
+  # List only published (not in future) posts
+  def list_posts, do: list_all_posts() |> Enum.reject(&post_in_future?/1)
+
+  # List tags, but only for published (not in future) posts
   def list_tags do
     list_all_posts()
-    |> Stream.reject(&(&1.date <= NaiveDateTime.utc_now()))
+    |> Stream.reject(&post_in_future?/1)
     |> Stream.flat_map(& &1.tags)
     |> Stream.uniq()
     |> Enum.sort()
   end
 
-  def post_count, do: @post_count
+  # Count of published (not in future) posts
+  def post_count, do: list_posts() |> length()
 
   defmodule NotFoundError do
     defexception [:message, plug_status: 404]
@@ -59,5 +58,10 @@ defmodule Home73k.Blog do
       [] -> raise NotFoundError, "posts with tag=#{tag} not found"
       posts -> posts
     end
+  end
+
+  # check if post date is in future
+  defp post_in_future?(post) do
+    NaiveDateTime.compare(post.date, NaiveDateTime.utc_now()) == :gt
   end
 end
