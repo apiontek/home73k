@@ -7,7 +7,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "@fontsource/fira-code": "^4.x",
+    "@fontsource/jetbrains-mono": "^4.2.2",
     "@fontsource/open-sans": "^4.2.2",
     "@fontsource/righteous": "^4.x",
     "@mdi/svg": "^5.x",

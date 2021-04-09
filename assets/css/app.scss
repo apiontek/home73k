@@ -24,6 +24,10 @@
   default 'solarized-dark256' css saved in _chroma.css
   minor customizations here
  */
+pre, code, .font-monospace {
+  font-family: $font-family-monospace;
+  font-weight: 300;
+}
 pre.chroma {
   padding: 0.75rem 1rem;
   border-radius: .5em;

@@ -1,13 +1,15 @@
 /* brand : Fontsource Righteous */
 @import "../node_modules/@fontsource/righteous/400.css"; /* normal | normal */
 
-/* monospace : Fontsource Fira Code */
-@import "../node_modules/@fontsource/fira-code/300.css"; /* light | normal */
-@import "../node_modules/@fontsource/fira-code/400.css"; /* normal | normal */
-@import "../node_modules/@fontsource/fira-code/500.css"; /* heavier normal? */
-@import "../node_modules/@fontsource/fira-code/600.css"; /* heavier normal? */
-@import "../node_modules/@fontsource/fira-code/700.css"; /* bold | normal */
-
+/* monospace : Fontsource JetBrains Mono */
+@import "../node_modules/@fontsource/jetbrains-mono/100.css"; /* light | normal */
+@import "../node_modules/@fontsource/jetbrains-mono/200.css"; /* light | normal */
+@import "../node_modules/@fontsource/jetbrains-mono/300.css"; /* light | normal */
+@import "../node_modules/@fontsource/jetbrains-mono/400.css"; /* normal | normal */
+@import "../node_modules/@fontsource/jetbrains-mono/500.css"; /* heavier normal? */
+@import "../node_modules/@fontsource/jetbrains-mono/600.css"; /* heavier normal? */
+@import "../node_modules/@fontsource/jetbrains-mono/700.css"; /* bold | normal */
+@import "../node_modules/@fontsource/jetbrains-mono/800.css"; /* bolder | normal */
 
 /* Fontsource Open Sans */
 @import "../node_modules/@fontsource/open-sans/300.css"; /* light | normal */
@@ -20,4 +22,3 @@
 @import "../node_modules/@fontsource/open-sans/700-italic.css"; /* bold | italic */
 @import "../node_modules/@fontsource/open-sans/800.css"; /* bolder? | normal */
 @import "../node_modules/@fontsource/open-sans/800-italic.css"; /* bolder? | italic */
-
