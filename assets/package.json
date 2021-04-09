@@ -10,6 +10,7 @@
     "@fontsource/jetbrains-mono": "^4.2.2",
     "@fontsource/open-sans": "^4.2.2",
     "@fontsource/righteous": "^4.x",
+    "@fontsource/source-serif-pro": "^4.2.3",
     "@mdi/svg": "^5.x",
     "@popperjs/core": "^2.x",
     "babel-plugin-prismjs": "^2.0.1",

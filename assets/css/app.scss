@@ -27,6 +27,7 @@
 pre, code, .font-monospace {
   font-family: $font-family-monospace;
   font-weight: 300;
+  font-size: 15px;
 }
 pre.chroma {
   padding: 0.75rem 1rem;
@@ -49,9 +50,9 @@ body {
   height: 100%;
 }
 a {
-  color: white;
-  // border-bottom: $secondary 2px solid;
-  text-decoration: underline;
+  color: rgba($white, 0.75);
+  border-bottom: $gray-600 2px solid;
+  text-decoration: none;
   &.navbar-brand,
   &.nav-link {
     border-bottom: none;
@@ -65,7 +66,10 @@ a {
   &:hover {
     color: $primary;
     text-decoration: none;
-    border-bottom: $secondary 2px solid;
+    border-bottom: $secondary 3px solid;
+    &.navbar-brand {
+      border-bottom: none;
+    }
   }
 }
 .border-gray-900 {

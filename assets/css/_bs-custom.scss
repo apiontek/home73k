@@ -1,14 +1,11 @@
 /* Bootstrap custom variable overrides */
 
 // Typography
-//
-// Font, line-height, and color for body text, headings, and more.
-
 $font-size-base: 1.125rem;
-$font-family-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
-$font-family-base: $font-family-sans-serif;
+
+$font-family-serif: "Source Serif Pro", "Iowan Old Style", "Apple Garamond",
+  Baskerville, "Times New Roman", "Droid Serif", Times, serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
 
 $font-family-brand: Righteous, system-ui, -apple-system, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -16,6 +13,8 @@ $font-family-brand: Righteous, system-ui, -apple-system, "Segoe UI", Roboto,
 
 $font-family-monospace: "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, Monaco, Consolas,
   "Liberation Mono", "Courier New", monospace !important;
+
+$font-family-base: $font-family-serif;
 
 // Features
 $enable-shadows: true;
