@@ -14,7 +14,7 @@ If anyone needs ideas for Good Plague Cookin', here's a tasty one.
 <!--more-->
 
 - spray cooking oil
-- 1 pound lentils, rinsed and picked over\*
+- 1 pound lentils, rinsed and picked over
 - 2 1/2 quarts vegetable stock or water
 - 1 whole dried poblano pepper, hard stem broken off, or 1 fresh jalapeno, stem removed, halved
 
@@ -43,10 +43,12 @@ _saute:_
 - paper-thin slices of lemon to garnish; thin wedges of lemon to pass at the table
 
 
-Spray a large soup pot with oil, and in it cook the onion/celery/garlic, then add the aromatics, lentils & stock, then add the squash/potatoes 15 minutes later and cook for another 20-30 mins, then add the spinach for only a few minutes at the end.
+Spray a large soup pot with oil, and in it cook the onion/celery/garlic, then add the aromatics, lentils & stock (for the stock, you can just add a dollop of better than bouillon with the aromatics before adding the water).
 
-(For the stock, you can just add a dollop of better than bouillon with the aromatics before adding the water.)
+Add salt to taste. Do not wait until the end to add salt, either. Salt in stages. Always.
+
+Then 15 minutes later add the squash/potatoes, maybe more salt, and cook for another 20-30 mins, then add the spinach for only a few minutes at the end.
+
+Just after the end, add the lemon juice, and maybe pepper to taste.
 
 This approach builds flavor better than the original recipe.
-
-Do not wait until the end to add salt, either. Salt in stages. Always.
