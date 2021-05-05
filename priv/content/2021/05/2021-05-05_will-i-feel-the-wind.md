@@ -24,6 +24,7 @@ rough implement cracking feathers?
 Did I scrap their sick crumpled span  
 somewhere lost?  
 
+Maybe I still feel something there.
 I used to dream of flight, soaring free.  
 Dips and curls and swoops,  
 graceful landings, inviting horizons.  
