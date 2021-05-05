@@ -24,10 +24,10 @@ rough implement cracking feathers?
 Did I scrap their sick crumpled span  
 somewhere lost?  
 
-Maybe I still feel something there.
+Maybe I still feel something.
 I used to dream of flight, soaring free.  
-Dips and curls and swoops,  
-graceful landings, inviting horizons.  
+Dancing dips and flips,  
+graceful landings, long horizons.  
 
 But who would love my winged majesty?  
 They were more danger than delight.  
